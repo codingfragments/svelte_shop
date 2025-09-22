@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { generateMockRating, generateMockReviews, generateMockSpecs, generateEnthusiastComment } from '$lib/utils/mockData.js';
+	import { cart } from '$lib/stores/cart.js';
 	import StarRating from '$lib/components/StarRating.svelte';
 	import ProductCard from '$lib/components/ProductCard.svelte';
 	import CategoryNav from '$lib/components/CategoryNav.svelte';
@@ -10,6 +11,7 @@
 	let selectedImageIndex = $state(0);
 	let quantity = $state(1);
 	let activeTab = $state('details');
+	let isAddingToCart = $state(false);
 
 	const mockRating = $derived(generateMockRating(data.product.id));
 	const mockReviews = $derived(generateMockReviews(data.product.id, data.category.slug, 5));
@@ -44,6 +46,30 @@
 			month: 'long',
 			day: 'numeric'
 		});
+	}
+	
+	async function handleAddToCart() {
+		if (isAddingToCart) return;
+		
+		isAddingToCart = true;
+		
+		const cartItem = {
+			id: data.product.id,
+			name: data.product.name,
+			slug: data.product.slug,
+			category_slug: data.product.category_slug || '',
+			price: data.product.price,
+			image_path: data.product.pictures?.[0]?.image_path,
+			in_stock: data.product.in_stock,
+			stock_quantity: data.product.stock_quantity
+		};
+		
+		cart.addItem(cartItem, quantity);
+		
+		// Show animation feedback for 1200ms (longer for detailed page)
+		setTimeout(() => {
+			isAddingToCart = false;
+		}, 1200);
 	}
 </script>
 
@@ -93,7 +119,7 @@
 				<div class="grid grid-cols-4 gap-3">
 					{#each data.product.pictures as picture, index}
 						<button
-							on:click={() => selectedImageIndex = index}
+							onclick={() => selectedImageIndex = index}
 							class="aspect-square bg-bg-elevated border rounded-lg overflow-hidden hover:border-primary transition-colors"
 							class:border-primary={selectedImageIndex === index}
 							class:border-overlay0={selectedImageIndex !== index}
@@ -188,7 +214,7 @@
 					<div class="flex items-center border border-overlay0 rounded-lg">
 						<button
 							disabled={quantity <= 1}
-							on:click={() => quantity = Math.max(1, quantity - 1)}
+							onclick={() => quantity = Math.max(1, quantity - 1)}
 							class="px-3 py-2 text-text-primary hover:bg-bg-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 						>
 							−
@@ -203,7 +229,7 @@
 						/>
 						<button
 							disabled={quantity >= data.product.stock_quantity}
-							on:click={() => quantity = Math.min(data.product.stock_quantity, quantity + 1)}
+							onclick={() => quantity = Math.min(data.product.stock_quantity, quantity + 1)}
 							class="px-3 py-2 text-text-primary hover:bg-bg-hover disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 						>
 							+
@@ -213,10 +239,31 @@
 
 				<div class="flex flex-col sm:flex-row gap-4">
 					<button
-						disabled={!data.product.in_stock}
-						class="flex-1 px-8 py-4 bg-primary text-base rounded-2xl hover:bg-secondary disabled:bg-overlay0 disabled:text-text-muted disabled:cursor-not-allowed transition-colors font-semibold text-lg"
+						onclick={handleAddToCart}
+						disabled={!data.product.in_stock || isAddingToCart}
+						class="relative flex-1 px-8 py-4 bg-primary text-base rounded-2xl hover:bg-secondary disabled:bg-overlay0 disabled:text-text-muted disabled:cursor-not-allowed transition-all duration-300 font-semibold text-lg border-2 border-transparent hover:enabled:border-yellow hover:enabled:font-bold active:scale-98 overflow-hidden"
+						class:animate-pulse={isAddingToCart}
+						class:bg-success={isAddingToCart}
+						class:border-success={isAddingToCart}
+						class:shadow-xl={isAddingToCart}
 					>
-						{data.product.in_stock ? 'Add to Cart' : 'Out of Stock'}
+						{#if isAddingToCart}
+							<!-- Success Animation with Cart Icon -->
+							<span class="flex items-center justify-center space-x-3">
+								<svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 8v6a2 2 0 002 2h10a2 2 0 002-2V9M7 13v6a2 2 0 002 2h10a2 2 0 002-2V9"></path>
+								</svg>
+								<span>Added {quantity} to Cart!</span>
+								<svg class="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+							</span>
+							<!-- Enhanced Ripple Effect -->
+							<div class="absolute inset-0 bg-white opacity-25 animate-ping rounded-2xl"></div>
+							<div class="absolute inset-0 bg-success opacity-10 animate-pulse rounded-2xl"></div>
+						{:else}
+							{data.product.in_stock ? 'Add to Cart' : 'Out of Stock'}
+						{/if}
 					</button>
 					<button class="px-6 py-4 border border-primary text-primary rounded-2xl hover:bg-primary hover:text-base transition-colors font-semibold">
 						♡ Wishlist
@@ -232,7 +279,7 @@
 		<div class="border-b border-overlay0">
 			<div class="flex">
 				<button
-					on:click={() => activeTab = 'details'}
+					onclick={() => activeTab = 'details'}
 					class="px-6 py-4 font-medium transition-colors border-b-2"
 					class:border-primary={activeTab === 'details'}
 					class:text-primary={activeTab === 'details'}
@@ -242,7 +289,7 @@
 					Specifications
 				</button>
 				<button
-					on:click={() => activeTab = 'reviews'}
+					onclick={() => activeTab = 'reviews'}
 					class="px-6 py-4 font-medium transition-colors border-b-2"
 					class:border-primary={activeTab === 'reviews'}
 					class:text-primary={activeTab === 'reviews'}

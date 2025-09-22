@@ -98,7 +98,7 @@
 					type="text"
 					placeholder="Search keyboards, switches, keycaps..."
 					value={searchQuery}
-					on:input={handleSearch}
+					oninput={handleSearch}
 					class="w-full px-4 py-3 bg-bg-elevated border border-overlay0 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
 				/>
 			</div>
@@ -108,7 +108,7 @@
 				<label for="sort" class="block text-sm font-medium text-text-primary mb-2">Sort By</label>
 				<select
 					id="sort"
-					on:change={handleSortChange}
+					onchange={handleSortChange}
 					class="w-full px-4 py-3 bg-bg-elevated border border-overlay0 rounded-lg text-text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
 				>
 					{#each sortOptions as option, index}
@@ -137,7 +137,7 @@
 				<h3 class="text-sm font-medium text-text-primary mb-3">Filter by Category</h3>
 				<div class="flex flex-wrap gap-2">
 					<button
-						on:click={() => handleCategoryFilter('')}
+						onclick={() => handleCategoryFilter('')}
 						class="px-4 py-2 rounded-lg border transition-colors text-sm font-medium"
 						class:bg-primary={!selectedCategory}
 						class:text-base={!selectedCategory}
@@ -152,7 +152,7 @@
 					
 					{#each data.categories as category}
 						<button
-							on:click={() => handleCategoryFilter(category.slug)}
+							onclick={() => handleCategoryFilter(category.slug)}
 							class="px-4 py-2 rounded-lg border transition-colors text-sm font-medium flex items-center space-x-2"
 							class:bg-primary={selectedCategory === category.slug}
 							class:text-base={selectedCategory === category.slug}
@@ -200,7 +200,7 @@
 				<!-- Previous Button -->
 				<button
 					disabled={currentPage <= 1}
-					on:click={() => goToPage(currentPage - 1)}
+					onclick={() => goToPage(currentPage - 1)}
 					class="px-4 py-2 border border-overlay0 rounded-lg text-text-primary hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 				>
 					Previous
@@ -211,7 +211,7 @@
 					{@const pageNum = Math.max(1, Math.min(totalPages - 6, currentPage - 3)) + index}
 					{#if pageNum <= totalPages}
 						<button
-							on:click={() => goToPage(pageNum)}
+							onclick={() => goToPage(pageNum)}
 							class="w-10 h-10 border rounded-lg transition-colors"
 							class:bg-primary={currentPage === pageNum}
 							class:text-base={currentPage === pageNum}
@@ -228,7 +228,7 @@
 				<!-- Next Button -->
 				<button
 					disabled={currentPage >= totalPages}
-					on:click={() => goToPage(currentPage + 1)}
+					onclick={() => goToPage(currentPage + 1)}
 					class="px-4 py-2 border border-overlay0 rounded-lg text-text-primary hover:border-primary disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
 				>
 					Next
@@ -249,7 +249,7 @@
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<button
-					on:click={() => { searchQuery = ''; selectedCategory = ''; updateFilters(); }}
+					onclick={() => { searchQuery = ''; selectedCategory = ''; updateFilters(); }}
 					class="px-6 py-3 bg-primary text-base rounded-lg hover:bg-secondary transition-colors font-medium"
 				>
 					Clear Search

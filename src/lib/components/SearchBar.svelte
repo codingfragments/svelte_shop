@@ -89,10 +89,10 @@
 		<input
 			bind:this={searchInput}
 			bind:value={searchQuery}
-			on:input={handleInput}
-			on:keydown={handleKeydown}
-			on:focus={() => searchQuery && performSearch(searchQuery)}
-			on:blur={() => setTimeout(hideResults, 150)}
+			oninput={handleInput}
+			onkeydown={handleKeydown}
+			onfocus={() => searchQuery && performSearch(searchQuery)}
+			onblur={() => setTimeout(hideResults, 150)}
 			type="text"
 			placeholder="Search keyboards, switches, keycaps..."
 			class="block w-full pl-10 pr-16 py-2 bg-bg-elevated border border-overlay0 rounded-lg text-text-primary placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
@@ -115,7 +115,7 @@
 			{#if searchResults.length > 0}
 				{#each searchResults as product}
 					<button
-						on:click={() => selectResult(product)}
+						onclick={() => selectResult(product)}
 						class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-bg-hover transition-colors text-left border-b border-overlay0 last:border-b-0"
 					>
 						{#if product.primary_picture}
@@ -145,7 +145,7 @@
 				{#if searchQuery.trim().length >= 2}
 					<div class="px-4 py-3 border-t border-overlay0">
 						<button
-							on:click={() => { goto(`/search?q=${encodeURIComponent(searchQuery.trim())}`); hideResults(); }}
+							onclick={() => { goto(`/search?q=${encodeURIComponent(searchQuery.trim())}`); hideResults(); }}
 							class="text-primary hover:text-secondary transition-colors text-sm font-medium"
 						>
 							View all results for "{searchQuery}"

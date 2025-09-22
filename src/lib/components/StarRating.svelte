@@ -72,9 +72,9 @@
 					class:cursor-pointer={interactive}
 					class:cursor-default={!interactive}
 					disabled={!interactive}
-					on:click={() => handleStarClick(index + 1)}
-					on:mouseenter={() => handleMouseEnter(index + 1)}
-					on:mouseleave={handleMouseLeave}
+					onclick={() => handleStarClick(index + 1)}
+					onmouseenter={() => handleMouseEnter(index + 1)}
+					onmouseleave={handleMouseLeave}
 					aria-label={interactive ? `Rate ${index + 1} stars` : undefined}
 				>
 					<!-- Background star (empty) -->

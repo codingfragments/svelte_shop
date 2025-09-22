@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { APP_CONFIG } from '$lib/config.js';
+	import { cart } from '$lib/stores/cart.js';
 	import SearchBar from './SearchBar.svelte';
 	
 	let isMenuOpen = false;
@@ -57,7 +58,7 @@
 				<!-- Categories Dropdown -->
 				<div class="relative">
 					<button
-						on:click={toggleCategory}
+						onclick={toggleCategory}
 						class="flex items-center space-x-1 text-text-primary hover:text-primary transition-colors font-medium"
 						class:text-primary={$page.url.pathname.startsWith('/categories')}
 					>
@@ -79,7 +80,7 @@
 								<a
 									href="/{category.slug}"
 									class="flex items-center space-x-3 px-4 py-3 hover:bg-bg-hover transition-colors"
-									on:click={closeMenus}
+									onclick={closeMenus}
 								>
 									<span class="text-lg">{category.icon}</span>
 									<div>
@@ -101,12 +102,21 @@
 			<!-- Actions -->
 			<div class="flex items-center space-x-4">
 				<!-- Cart -->
-				<button class="relative p-2 text-text-primary hover:text-primary transition-colors">
+				<a 
+					href="/cart" 
+					class="relative p-2 text-text-primary hover:text-primary transition-colors"
+					class:text-primary={$page.url.pathname === '/cart'}
+				>
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m-2.4 8v6a2 2 0 002 2h10a2 2 0 002-2V9M7 13v6a2 2 0 002 2h10a2 2 0 002-2V9"></path>
 					</svg>
-					<span class="absolute -top-1 -right-1 bg-primary text-base text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">3</span>
-				</button>
+					{#if $cart.itemCount > 0}
+						<span class="absolute -top-1 -right-1 bg-primary text-base text-xs rounded-full w-5 h-5 flex items-center justify-center font-bold">
+							{$cart.itemCount > 99 ? '99+' : $cart.itemCount}
+						</span>
+					{/if}
+					<span class="sr-only">Shopping Cart ({$cart.itemCount} items)</span>
+				</a>
 
 				<!-- User -->
 				<button class="p-2 text-text-primary hover:text-primary transition-colors">
@@ -117,7 +127,7 @@
 
 				<!-- Mobile Menu Toggle -->
 				<button 
-					on:click={toggleMenu}
+					onclick={toggleMenu}
 					class="lg:hidden p-2 text-text-primary hover:text-primary transition-colors"
 				>
 					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +150,7 @@
 				<a 
 					href="/" 
 					class="block py-2 text-text-primary hover:text-primary transition-colors font-medium"
-					on:click={closeMenus}
+					onclick={closeMenus}
 				>
 					Home
 				</a>
@@ -148,7 +158,7 @@
 				<a 
 					href="/products" 
 					class="block py-2 text-text-primary hover:text-primary transition-colors font-medium"
-					on:click={closeMenus}
+					onclick={closeMenus}
 				>
 					All Products
 				</a>
@@ -159,7 +169,7 @@
 						<a
 							href="/{category.slug}"
 							class="flex items-center space-x-3 py-3 hover:text-primary transition-colors"
-							on:click={closeMenus}
+							onclick={closeMenus}
 						>
 							<span class="text-lg">{category.icon}</span>
 							<div>
