@@ -152,7 +152,7 @@ function loadSeedData(): SeedData {
 				stock_quantity: Math.floor(Math.random() * 100) + 1,
 				sku: `${category.slug.toUpperCase()}-${(i + 1).toString().padStart(3, '0')}`,
 				featured: Math.random() > 0.8, // 20% chance of being featured
-				pictures: pictures.map(pic => `/${category.slug}/${pic}`)
+				pictures: pictures.map(pic => `/images/${category.slug}/${pic}`)
 			});
 		}
 	}
