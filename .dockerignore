@@ -3,7 +3,6 @@ npm-debug.log
 .git
 .gitignore
 README.md
-.env
 .env.local
 .env.production
 .env.development
@@ -11,3 +10,4 @@ README.md
 *.log
 build
 .svelte-kit
+data/

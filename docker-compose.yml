@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  svelte-shop:
+    build: .
+    image: codingfragments/svelte-shop:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_PATH=/app/data/db.sqlite
+    volumes:
+      - ./data:/app/data:rw
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  svelte-shop-dev:
+    profiles: ["dev"]
+    build: .
+    image: codingfragments/svelte-shop:latest
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_PATH=/app/data/db.sqlite
+    volumes:
+      - ./data:/app/data:rw
+    restart: unless-stopped

@@ -12,12 +12,21 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run format` - Format code with Prettier
 - `npm run lint` - Check code formatting
 
+## Database Commands
+
+- `npm run db:init` - Initialize database schema
+- `npm run db:seed` - Seed database with sample data
+- `npm run db:reset` - Complete reset (wipe + init + seed)
+- `npm run db:export` - Export database to productseed.json
+- `npm run db:wipe` - Wipe all data from database
+
 ## Tech Stack
 
 - **SvelteKit 2.22.0** with Svelte 5.0.0 - Full-stack framework with file-based routing
 - **TypeScript 5.0.0** - Strict type checking enabled
 - **TailwindCSS 4.0.0** - Utility-first CSS framework
 - **Vite 7.0.4** - Build tool and dev server
+- **SQLite** (better-sqlite3) - Database with schema for products, categories, pictures
 
 ## Architecture
 
@@ -33,8 +42,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `src/routes/` - Pages and layouts (file-based routing)
 - `static/` - Static assets served from root
 
-Backend api:
+**Database Setup**:
+- Database: SQLite stored in `./data/db.sqlite` (configurable via `.env` DATABASE_PATH)
+- Tables: `categories`, `products`, `product_pictures`
+- Seeding: Uses random data or loads from `productseed.json`
+- Images: Product images stored in `/static/images/{category}/` directories
 
+Backend api:
 - use svelte server routes for backend api calls
 
 ## Configuration Notes

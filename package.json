@@ -1,41 +1,51 @@
 {
-	"name": "svelte-shop",
-	"private": true,
-	"version": "0.0.1",
-	"type": "module",
-	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "vite preview",
-		"prepare": "svelte-kit sync || echo ''",
-		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
-		"lint": "prettier --check .",
-		"health": "curl -s http://localhost:5173/api/health | jq",
-		"docker:build": "docker build -t svelte-shop:latest .",
-		"docker:run": "docker run -p 3000:3000 svelte-shop:latest",
-		"docker:dev": "docker run -p 3000:3000 --rm svelte-shop:latest"
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-auto": "^6.0.0",
-		"@sveltejs/kit": "^2.22.0",
-		"@sveltejs/vite-plugin-svelte": "^6.0.0",
-		"@tailwindcss/vite": "^4.0.0",
-		"prettier": "^3.4.2",
-		"prettier-plugin-svelte": "^3.3.3",
-		"prettier-plugin-tailwindcss": "^0.6.11",
-		"svelte": "^5.0.0",
-		"svelte-check": "^4.0.0",
-		"tailwindcss": "^4.0.0",
-		"typescript": "^5.0.0",
-		"vite": "^7.0.4",
-		"vite-plugin-devtools-json": "^1.0.0"
-	},
-	"volta": {
-		"node": "22.19.0"
-	},
-	"dependencies": {
-		"@sveltejs/adapter-node": "^5.3.2"
-	}
+  "name": "svelte-shop",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "prepare": "svelte-kit sync || echo ''",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "health": "curl -s http://localhost:5173/api/health | jq",
+    "db": "tsx scripts/db-utils.ts",
+    "db:init": "tsx scripts/db-utils.ts init",
+    "db:wipe": "tsx scripts/db-utils.ts wipe",
+    "db:seed": "tsx scripts/db-utils.ts seed",
+    "db:export": "tsx scripts/db-utils.ts export",
+    "db:reset": "tsx scripts/db-utils.ts reset",
+    "docker:build": "docker build -t codingfragments/svelte-shop:latest  .",
+    "docker:build:push": "docker buildx build --platform linux/amd64,linux/arm64 -t codingfragments/svelte-shop:latest --push .",
+    "docker:run": "docker run -p 3000:3000 --env-file .env codingfragments/svelte-shop:latest",
+    "docker:dev": "docker run -p 3000:3000 --env-file .env --rm codingfragments/svelte-shop:latest"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/kit": "^2.22.0",
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.20.5",
+    "typescript": "^5.0.0",
+    "vite": "^7.0.4",
+    "vite-plugin-devtools-json": "^1.0.0"
+  },
+  "volta": {
+    "node": "22.19.0"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-node": "^5.3.2",
+    "better-sqlite3": "^12.3.0",
+    "dotenv": "^17.2.2"
+  }
 }
