@@ -38,6 +38,30 @@ CREATE TABLE IF NOT EXISTS product_pictures (
     FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
 );
 
+-- FAQ table
+CREATE TABLE IF NOT EXISTS faqs (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    question TEXT NOT NULL,
+    answer TEXT NOT NULL,
+    category TEXT,
+    sort_order INTEGER DEFAULT 0,
+    is_featured BOOLEAN DEFAULT FALSE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- FAQ related products table (many-to-many relationship)
+CREATE TABLE IF NOT EXISTS faq_products (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    faq_id INTEGER NOT NULL,
+    product_id INTEGER NOT NULL,
+    sort_order INTEGER DEFAULT 0,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (faq_id) REFERENCES faqs (id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE,
+    UNIQUE(faq_id, product_id)
+);
+
 -- Create indexes for performance
 CREATE INDEX IF NOT EXISTS idx_products_category_id ON products(category_id);
 CREATE INDEX IF NOT EXISTS idx_products_slug ON products(slug);
@@ -45,3 +69,8 @@ CREATE INDEX IF NOT EXISTS idx_products_featured ON products(featured);
 CREATE INDEX IF NOT EXISTS idx_product_pictures_product_id ON product_pictures(product_id);
 CREATE INDEX IF NOT EXISTS idx_product_pictures_sort_order ON product_pictures(sort_order);
 CREATE INDEX IF NOT EXISTS idx_categories_slug ON categories(slug);
+CREATE INDEX IF NOT EXISTS idx_faqs_category ON faqs(category);
+CREATE INDEX IF NOT EXISTS idx_faqs_sort_order ON faqs(sort_order);
+CREATE INDEX IF NOT EXISTS idx_faqs_featured ON faqs(is_featured);
+CREATE INDEX IF NOT EXISTS idx_faq_products_faq_id ON faq_products(faq_id);
+CREATE INDEX IF NOT EXISTS idx_faq_products_product_id ON faq_products(product_id);

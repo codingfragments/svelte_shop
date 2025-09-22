@@ -47,6 +47,8 @@ export function wipeDatabase() {
 	try {
 		// Drop tables in reverse order due to foreign key constraints
 		db.exec(`
+			DROP TABLE IF EXISTS faq_products;
+			DROP TABLE IF EXISTS faqs;
 			DROP TABLE IF EXISTS product_pictures;
 			DROP TABLE IF EXISTS products;
 			DROP TABLE IF EXISTS categories;
@@ -116,6 +118,26 @@ export const queries = {
 	get getPrimaryProductPicture() {
 		if (!_queries) initQueries();
 		return _queries.getPrimaryProductPicture;
+	},
+	get insertFAQ() {
+		if (!_queries) initQueries();
+		return _queries.insertFAQ;
+	},
+	get insertFAQProduct() {
+		if (!_queries) initQueries();
+		return _queries.insertFAQProduct;
+	},
+	get getAllFAQs() {
+		if (!_queries) initQueries();
+		return _queries.getAllFAQs;
+	},
+	get getFAQsByCategory() {
+		if (!_queries) initQueries();
+		return _queries.getFAQsByCategory;
+	},
+	get getFAQProducts() {
+		if (!_queries) initQueries();
+		return _queries.getFAQProducts;
 	}
 };
 
@@ -184,6 +206,36 @@ function initQueries() {
 			SELECT * FROM product_pictures
 			WHERE product_id = ? AND is_primary = TRUE
 			LIMIT 1
+		`),
+		
+		// FAQs
+		insertFAQ: db.prepare(`
+			INSERT INTO faqs (question, answer, category, sort_order, is_featured)
+			VALUES (?, ?, ?, ?, ?)
+		`),
+		
+		insertFAQProduct: db.prepare(`
+			INSERT INTO faq_products (faq_id, product_id, sort_order)
+			VALUES (?, ?, ?)
+		`),
+		
+		getAllFAQs: db.prepare(`
+			SELECT * FROM faqs
+			ORDER BY sort_order ASC, created_at DESC
+		`),
+		
+		getFAQsByCategory: db.prepare(`
+			SELECT * FROM faqs
+			WHERE category = ?
+			ORDER BY sort_order ASC, created_at DESC
+		`),
+		
+		getFAQProducts: db.prepare(`
+			SELECT fp.*, p.name, p.slug, p.price
+			FROM faq_products fp
+			LEFT JOIN products p ON fp.product_id = p.id
+			WHERE fp.faq_id = ?
+			ORDER BY fp.sort_order ASC
 		`)
 	};
 }
@@ -224,4 +276,26 @@ export interface ProductPicture {
 	sort_order: number;
 	is_primary: boolean;
 	created_at: string;
+}
+
+export interface FAQ {
+	id: number;
+	question: string;
+	answer: string;
+	category?: string;
+	sort_order: number;
+	is_featured: boolean;
+	created_at: string;
+	updated_at: string;
+}
+
+export interface FAQProduct {
+	id: number;
+	faq_id: number;
+	product_id: number;
+	sort_order: number;
+	created_at: string;
+	name?: string;
+	slug?: string;
+	price?: number;
 }
