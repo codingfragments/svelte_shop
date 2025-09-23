@@ -1,5 +1,92 @@
 @import 'tailwindcss';
 
+/* Tailwind 4 CSS-based color configuration */
+@theme {
+	/* Catppuccin Macchiato base colors */
+	--color-base: #24273a;
+	--color-mantle: #1e2030;
+	--color-crust: #181926;
+	--color-surface0: #363a4f;
+	--color-surface1: #494d64;
+	--color-surface2: #5b6078;
+	--color-overlay0: #6e738d;
+	--color-overlay1: #8087a2;
+	--color-overlay2: #939ab7;
+	--color-subtext0: #a5adcb;
+	--color-subtext1: #b8c0e0;
+	--color-text: #cad3f5;
+	
+	/* Accent colors */
+	--color-rosewater: #f4dbd6;
+	--color-flamingo: #f0c6c6;
+	--color-pink: #f5bde6;
+	--color-mauve: #c6a0f6;
+	--color-red: #ed8796;
+	--color-maroon: #ee99a0;
+	--color-peach: #f5a97f;
+	--color-yellow: #eed49f;
+	--color-green: #a6da95;
+	--color-teal: #8bd5ca;
+	--color-sky: #91d7e3;
+	--color-sapphire: #7dc4e4;
+	--color-blue: #8aadf4;
+	--color-lavender: #b7bdf8;
+	
+	/* Semantic colors */
+	--color-primary: #c6a0f6;
+	--color-secondary: #b7bdf8;
+	--color-accent: #f5bde6;
+	--color-success: #a6da95;
+	--color-warning: #eed49f;
+	--color-error: #ed8796;
+	
+	/* Background variants */
+	--color-bg-primary: #24273a;
+	--color-bg-secondary: #1e2030;
+	--color-bg-tertiary: #181926;
+	--color-bg-elevated: #363a4f;
+	--color-bg-card: #494d64;
+	--color-bg-hover: #5b6078;
+	
+	/* Text variants */
+	--color-text-primary: #cad3f5;
+	--color-text-secondary: #b8c0e0;
+	--color-text-muted: #a5adcb;
+	
+	/* Font families */
+	--font-family-mono: 'Fira Code', 'JetBrains Mono', Monaco, 'Cascadia Code', monospace;
+	--font-family-sans: Inter, system-ui, sans-serif;
+	
+	/* Animations */
+	--animate-fade-in: fadeIn 0.5s ease-in-out;
+	--animate-slide-up: slideUp 0.3s ease-out;
+	--animate-pulse-slow: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	
+	/* Backdrop blur */
+	--backdrop-blur-xs: 2px;
+	
+	/* Border radius */
+	--radius-2xl: 1rem;
+	--radius-3xl: 1.5rem;
+}
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+@keyframes slideUp {
+	0% { 
+		transform: translateY(10px);
+		opacity: 0;
+	}
+	100% { 
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
 /* Base styles with Catppuccin Macchiato theme */
 :root {
 	color-scheme: dark;
