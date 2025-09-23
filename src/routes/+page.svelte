@@ -51,6 +51,9 @@
 					Discover premium mechanical keyboards, custom switches, artisan keycaps, and accessories
 					crafted for enthusiasts who demand perfection.
 				</p>
+				<p class="text-warning mx-auto max-w-2xl text-lg font-bold">
+					⚠️ This is only a demo shop - no real products are sold here.
+				</p>
 			</div>
 
 			<!-- CTA Buttons -->
