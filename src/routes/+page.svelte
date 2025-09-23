@@ -32,26 +32,26 @@
 </svelte:head>
 
 <!-- Hero Section -->
-<section class="from-bg-primary via-bg-secondary to-bg-tertiary relative bg-gradient-to-br py-24">
-	<div class="from-primary/5 to-secondary/5 absolute inset-0 bg-gradient-to-r"></div>
+<section class="relative bg-gradient-to-br from-bg-primary via-bg-secondary to-bg-tertiary py-24">
+	<div class="absolute inset-0 bg-gradient-to-r from-primary/5 to-secondary/5"></div>
 	<div class="relative container mx-auto px-4">
 		<div class="mx-auto max-w-4xl space-y-8 text-center">
 			<!-- Hero Content -->
 			<div class="space-y-6">
-				<h1 class="text-text-primary text-5xl leading-tight font-bold md:text-6xl">
+				<h1 class="text-5xl leading-tight font-bold text-text-primary md:text-6xl">
 					Welcome to <span
-						class="from-primary to-secondary bg-gradient-to-r bg-clip-text text-transparent"
+						class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
 						>{APP_CONFIG.name}</span
 					>
 				</h1>
-				<p class="text-text-secondary mx-auto max-w-3xl text-xl leading-relaxed md:text-2xl">
+				<p class="mx-auto max-w-3xl text-xl leading-relaxed text-text-secondary md:text-2xl">
 					{APP_CONFIG.description}
 				</p>
-				<p class="text-text-muted mx-auto max-w-2xl text-lg">
+				<p class="mx-auto max-w-2xl text-lg text-text-muted">
 					Discover premium mechanical keyboards, custom switches, artisan keycaps, and accessories
 					crafted for enthusiasts who demand perfection.
 				</p>
-				<p class="text-warning mx-auto max-w-2xl text-lg font-bold">
+				<p class="mx-auto max-w-2xl text-lg font-bold text-warning">
 					⚠️ This is only a demo shop - no real products are sold here.
 				</p>
 			</div>
@@ -60,13 +60,13 @@
 			<div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
 				<a
 					href="/products"
-					class="bg-primary hover:bg-secondary rounded-2xl px-8 py-4 text-base text-lg font-semibold shadow-lg transition-colors hover:shadow-xl"
+					class="rounded-2xl bg-primary px-8 py-4 text-lg font-semibold text-crust shadow-lg transition-colors hover:bg-secondary hover:shadow-xl"
 				>
-					Shop All Products
+					<span class="text-crust">Shop All Products</span>
 				</a>
 				<a
 					href="#categories"
-					class="border-primary text-primary hover:bg-primary rounded-2xl border px-8 py-4 text-lg font-semibold transition-colors hover:text-base"
+					class="rounded-2xl border border-primary px-8 py-4 text-lg font-semibold text-primary transition-colors hover:bg-primary hover:text-base"
 				>
 					Browse Categories
 				</a>
@@ -79,8 +79,8 @@
 <section id="categories" class="bg-bg-secondary py-16">
 	<div class="container mx-auto px-4">
 		<div class="mb-12 space-y-4 text-center">
-			<h2 class="text-text-primary text-4xl font-bold">Shop by Category</h2>
-			<p class="text-text-muted mx-auto max-w-2xl text-xl">
+			<h2 class="text-4xl font-bold text-text-primary">Shop by Category</h2>
+			<p class="mx-auto max-w-2xl text-xl text-text-muted">
 				Explore our curated collection of mechanical keyboard essentials
 			</p>
 		</div>
@@ -88,11 +88,11 @@
 		{#if loading}
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each Array(6) as _}
-					<div class="bg-bg-card border-overlay0 animate-pulse rounded-2xl border p-6">
-						<div class="bg-overlay0 mb-4 h-16 w-16 rounded-2xl"></div>
-						<div class="bg-overlay0 mb-2 h-6 rounded"></div>
-						<div class="bg-overlay0 mb-4 h-4 w-3/4 rounded"></div>
-						<div class="bg-overlay0 h-4 w-1/2 rounded"></div>
+					<div class="animate-pulse rounded-2xl border border-overlay0 bg-bg-card p-6">
+						<div class="mb-4 h-16 w-16 rounded-2xl bg-overlay0"></div>
+						<div class="mb-2 h-6 rounded bg-overlay0"></div>
+						<div class="mb-4 h-4 w-3/4 rounded bg-overlay0"></div>
+						<div class="h-4 w-1/2 rounded bg-overlay0"></div>
 					</div>
 				{/each}
 			</div>
@@ -101,21 +101,21 @@
 				{#each categories as category}
 					<a
 						href="/{category.slug}"
-						class="group bg-bg-card border-overlay0 hover:border-primary hover:shadow-primary/10 rounded-2xl border p-6 transition-all duration-300 hover:shadow-lg"
+						class="group rounded-2xl border border-overlay0 bg-bg-card p-6 transition-all duration-300 hover:border-primary hover:shadow-lg hover:shadow-primary/10"
 					>
 						<div class="flex items-start space-x-4">
 							<div
-								class="from-primary/20 to-secondary/20 flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br text-2xl transition-transform duration-300 group-hover:scale-110"
+								class="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 text-2xl transition-transform duration-300 group-hover:scale-110"
 							>
 								{category.icon}
 							</div>
 							<div class="min-w-0 flex-1">
 								<h3
-									class="text-text-primary group-hover:text-primary mb-2 text-xl font-semibold transition-colors"
+									class="mb-2 text-xl font-semibold text-text-primary transition-colors group-hover:text-primary"
 								>
 									{category.name}
 								</h3>
-								<p class="text-text-muted mb-3 line-clamp-2 text-sm">
+								<p class="mb-3 line-clamp-2 text-sm text-text-muted">
 									{category.description}
 								</p>
 								<div class="flex items-center justify-between text-sm">
@@ -141,8 +141,8 @@
 <section class="bg-bg-primary py-16">
 	<div class="container mx-auto px-4">
 		<div class="mb-12 space-y-4 text-center">
-			<h2 class="text-text-primary text-4xl font-bold">Featured Products</h2>
-			<p class="text-text-muted mx-auto max-w-2xl text-xl">
+			<h2 class="text-4xl font-bold text-text-primary">Featured Products</h2>
+			<p class="mx-auto max-w-2xl text-xl text-text-muted">
 				Hand-picked favorites from our community of keyboard enthusiasts
 			</p>
 		</div>
@@ -150,19 +150,19 @@
 		{#if loading}
 			<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 				{#each Array(6) as _}
-					<div class="bg-bg-card border-overlay0 animate-pulse rounded-2xl border">
-						<div class="bg-overlay0 h-56 rounded-t-2xl"></div>
+					<div class="animate-pulse rounded-2xl border border-overlay0 bg-bg-card">
+						<div class="h-56 rounded-t-2xl bg-overlay0"></div>
 						<div class="space-y-3 p-4">
-							<div class="bg-overlay0 h-4 w-1/3 rounded"></div>
-							<div class="bg-overlay0 h-5 rounded"></div>
+							<div class="h-4 w-1/3 rounded bg-overlay0"></div>
+							<div class="h-5 rounded bg-overlay0"></div>
 							<div class="flex space-x-1">
 								{#each Array(5) as _}
-									<div class="bg-overlay0 h-4 w-4 rounded"></div>
+									<div class="h-4 w-4 rounded bg-overlay0"></div>
 								{/each}
 							</div>
 							<div class="flex items-center justify-between">
-								<div class="bg-overlay0 h-6 w-20 rounded"></div>
-								<div class="bg-overlay0 h-8 w-24 rounded"></div>
+								<div class="h-6 w-20 rounded bg-overlay0"></div>
+								<div class="h-8 w-24 rounded bg-overlay0"></div>
 							</div>
 						</div>
 					</div>
@@ -179,7 +179,7 @@
 			<div class="mt-12 text-center">
 				<a
 					href="/products"
-					class="border-primary text-primary hover:bg-primary inline-flex items-center space-x-2 rounded-2xl border px-8 py-4 text-lg font-semibold transition-colors hover:text-base"
+					class="inline-flex items-center space-x-2 rounded-2xl border border-primary px-8 py-4 text-lg font-semibold text-primary transition-colors hover:bg-primary hover:text-base"
 				>
 					<span>View All Products</span>
 					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,19 +194,19 @@
 			</div>
 		{:else}
 			<div class="py-12 text-center">
-				<p class="text-text-muted text-lg">No featured products available.</p>
+				<p class="text-lg text-text-muted">No featured products available.</p>
 			</div>
 		{/if}
 	</div>
 </section>
 
 <!-- Newsletter Section -->
-<section class="from-primary/10 to-secondary/10 border-overlay0 border-t bg-gradient-to-r py-16">
+<section class="border-t border-overlay0 bg-gradient-to-r from-primary/10 to-secondary/10 py-16">
 	<div class="container mx-auto px-4">
 		<div class="mx-auto max-w-3xl space-y-8 text-center">
 			<div class="space-y-4">
-				<h2 class="text-text-primary text-4xl font-bold">Stay in the Loop</h2>
-				<p class="text-text-muted text-xl">
+				<h2 class="text-4xl font-bold text-text-primary">Stay in the Loop</h2>
+				<p class="text-xl text-text-muted">
 					Get notified about new products, group buys, and exclusive deals for keyboard enthusiasts
 				</p>
 			</div>
@@ -215,16 +215,16 @@
 				<input
 					type="email"
 					placeholder="Enter your email address"
-					class="bg-bg-elevated border-overlay0 text-text-primary placeholder-text-muted focus:ring-primary focus:border-primary flex-1 rounded-lg border px-4 py-3 transition-colors focus:ring-2 focus:outline-none"
+					class="flex-1 rounded-lg border border-overlay0 bg-bg-elevated px-4 py-3 text-text-primary placeholder-text-muted transition-colors focus:border-primary focus:ring-2 focus:ring-primary focus:outline-none"
 				/>
 				<button
-					class="bg-primary hover:bg-secondary rounded-lg px-6 py-3 text-base font-medium whitespace-nowrap transition-colors"
+					class="rounded-lg bg-primary px-6 py-3 font-medium whitespace-nowrap text-base transition-colors hover:bg-secondary"
 				>
 					Subscribe
 				</button>
 			</div>
 
-			<p class="text-text-muted text-sm">
+			<p class="text-sm text-text-muted">
 				Join 10,000+ keyboard enthusiasts. Unsubscribe at any time.
 			</p>
 		</div>
