@@ -130,140 +130,210 @@ function generateFAQs(): SeedFAQ[] {
 			answer: "Mechanical keyboards use individual mechanical switches under each key, providing tactile feedback, audible clicks, and superior durability. Unlike membrane keyboards that use a rubber dome system, mechanical switches offer consistent key feel, faster response times, and can last 50-100 million keystrokes. They're preferred by gamers, programmers, and typing enthusiasts for their precision and satisfaction.",
 			category: "general",
 			is_featured: true,
-			related_products: ["mechanical-pro-x1", "ultra-compact-60", "tactile-wonder"]
+			related_products: []
 		},
 		{
 			question: "What's the difference between linear, tactile, and clicky switches?",
 			answer: "Linear switches (like Cherry MX Red) provide smooth keystrokes without tactile bumps or clicks, ideal for gaming. Tactile switches (like Cherry MX Brown) have a bump that you feel when the key actuates, great for typing accuracy. Clicky switches (like Cherry MX Blue) provide both tactile feedback and an audible click, loved by typing purists but can be noisy in shared spaces.",
 			category: "switches",
 			is_featured: true,
-			related_products: ["linear-red-pro", "tactile-brown-elite", "clicky-blue-master"]
+			related_products: []
 		},
 		{
 			question: "What does '60%', '65%', 'TKL', and 'Full Size' mean for keyboard layouts?",
 			answer: "These refer to keyboard sizes: 60% keyboards remove function keys, arrow keys, and numpad for maximum compactness (61 keys). 65% adds arrow keys and some function keys (68 keys). TKL (Tenkeyless) removes only the numpad, keeping function keys and arrows (87 keys). Full Size includes everything including the numpad (104+ keys). Smaller sizes save desk space and can improve ergonomics.",
 			category: "keyboards",
 			is_featured: true,
-			related_products: ["ultra-compact-60", "wireless-elite", "full-size-pro"]
+			related_products: []
 		},
 		{
 			question: "What are hot-swap keyboards and why are they useful?",
 			answer: "Hot-swap keyboards allow you to remove and replace switches without soldering. They use special sockets that hold switches securely while allowing easy removal with a switch puller. This lets you experiment with different switch types, replace broken switches, or upgrade your keyboard's feel without buying a new board. Perfect for enthusiasts who want to customize their typing experience.",
 			category: "keyboards",
 			is_featured: false,
-			related_products: ["hot-swap-ready", "custom-build-kit", "switch-puller-tool"]
+			related_products: []
 		},
 		{
 			question: "What's the difference between ABS and PBT keycaps?",
 			answer: "ABS (Acrylonitrile Butadiene Styrene) keycaps are cheaper and easier to manufacture with vibrant colors and shine over time. PBT (Polybutylene Terephthalate) keycaps are more durable, resist shine, have better texture, and maintain their appearance longer. PBT caps often have a more premium feel and are preferred by enthusiasts, while ABS caps are common on gaming keyboards for their bright RGB compatibility.",
 			category: "keycaps",
 			is_featured: true,
-			related_products: ["pbt-thick-caps", "rgb-translucent", "cherry-profile-set"]
+			related_products: []
 		},
 		{
 			question: "What does 'Cherry Profile', 'OEM', 'SA', and other keycap profiles mean?",
 			answer: "Keycap profiles define the shape and height of keycaps. Cherry profile is lower and more sculpted, preferred for fast typing. OEM is the most common profile, slightly taller than Cherry. SA profile is very tall and heavily sculpted, vintage-style. XDA and DSA are uniform height across all rows. Each profile affects typing feel, comfort, and aesthetics differently.",
 			category: "keycaps",
 			is_featured: false,
-			related_products: ["cherry-profile-set", "oem-double-shot", "artisan-collection"]
+			related_products: []
 		},
 		{
 			question: "How do I know which switches are right for me?",
 			answer: "Consider your primary use case: gamers often prefer linear switches (Red, Black) for smooth, fast actuation. Typists usually prefer tactile switches (Brown, Clear) for feedback without noise. If you love the classic typewriter feel, try clicky switches (Blue, Green). Weight preferences vary - lighter switches (45g) for speed, heavier switches (65g+) for deliberate typing. Try a switch tester to find your preference!",
 			category: "switches",
 			is_featured: false,
-			related_products: ["switch-tester", "linear-red-pro", "tactile-brown-elite"]
+			related_products: []
 		},
 		{
 			question: "What is keyboard lubing and should I do it?",
 			answer: "Switch lubing involves applying a thin layer of special lubricant to switch components to reduce friction, eliminate scratchiness, and create smoother keystrokes. It's an advanced modification that can significantly improve typing feel, especially on budget switches. However, it's time-consuming (2-4 hours per keyboard) and requires practice. Many premium switches come pre-lubed from the factory.",
 			category: "switches",
 			is_featured: false,
-			related_products: ["lube-station-kit", "custom-lubed", "premium-aluminum"]
+			related_products: []
 		},
 		{
 			question: "What's the purpose of stabilizers on keyboards?",
 			answer: "Stabilizers ('stabs') are mechanisms that keep larger keys (spacebar, enter, shift) stable and prevent them from wobbling or binding when pressed off-center. Good stabilizers ensure smooth, consistent key presses across the entire key surface. Poor stabilizers cause rattling, sticking, or uneven key feel. Quality stabilizers are crucial for a premium typing experience.",
 			category: "keyboards",
 			is_featured: false,
-			related_products: ["stabilizer-set", "premium-aluminum", "custom-build-kit"]
+			related_products: []
 		},
 		{
 			question: "Why are some mechanical keyboards so expensive?",
 			answer: "Premium keyboards use high-quality materials like aluminum cases, brass plates, and premium switches. Features like hot-swap sockets, USB-C connectivity, wireless capability, and RGB lighting add cost. Small-batch artisan boards have higher manufacturing costs. Additionally, research and development for innovative designs, premium packaging, and brand reputation contribute to pricing. You're paying for durability, features, and typing experience.",
 			category: "general",
 			is_featured: false,
-			related_products: ["premium-aluminum", "wireless-elite", "artisan-custom"]
+			related_products: []
 		},
 		{
 			question: "What's the difference between 2.4GHz and Bluetooth wireless keyboards?",
 			answer: "2.4GHz wireless uses a dedicated USB receiver for low-latency connection, ideal for gaming with response times under 1ms. Bluetooth connects directly to devices without a receiver, perfect for multiple device switching and mobile use, but has higher latency (20-50ms). Many modern keyboards offer both modes, letting you choose based on your needs - 2.4GHz for gaming, Bluetooth for productivity.",
 			category: "keyboards",
 			is_featured: false,
-			related_products: ["wireless-elite", "wireless-freedom", "wireless-adapter"]
+			related_products: []
 		},
 		{
 			question: "How do I clean and maintain my mechanical keyboard?",
 			answer: "Regular maintenance keeps your keyboard performing well: 1) Use compressed air to blow out debris weekly. 2) Remove keycaps monthly for deep cleaning with mild soap and water. 3) Clean the board surface with isopropyl alcohol wipes. 4) For switches, use a brush to remove dust. 5) Avoid eating over your keyboard. 6) Store in a dust-free environment. Proper care can extend your keyboard's life significantly.",
 			category: "general",
 			is_featured: false,
-			related_products: ["cleaning-kit", "keycap-remover", "carrying-case-pro"]
+			related_products: []
 		},
 		{
 			question: "What cables work best with mechanical keyboards?",
 			answer: "USB-C is becoming the standard for modern keyboards, offering reversible connection and faster data transfer. Coiled cables add aesthetic appeal and reduce desk clutter while allowing flexibility. Braided or paracord sleeving provides durability and looks premium. Detachable cables make storage and transport easier. Avoid cheap cables that may cause connection issues or limit features like RGB or high polling rates.",
 			category: "cables",
 			is_featured: false,
-			related_products: ["coiled-usb-c-pro", "braided-nylon", "detachable-design"]
+			related_products: []
 		},
 		{
 			question: "Do I need a wrist rest for my mechanical keyboard?",
 			answer: "Wrist rests can improve comfort during long typing sessions by maintaining proper wrist alignment and reducing strain. They're especially helpful with taller keyboards or if you experience wrist fatigue. However, the key is proper typing technique - wrists should float, not rest constantly. Choose ergonomic designs that match your keyboard's height and provide appropriate support without forcing unnatural hand positions.",
 			category: "accessories",
 			is_featured: false,
-			related_products: ["wrist-rest-ergonomic", "desk-mat-large", "ergonomic-stand"]
+			related_products: []
 		},
 		{
 			question: "What's the deal with artisan keycaps?",
 			answer: "Artisan keycaps are handcrafted, often one-of-a-kind keycaps that serve as art pieces and conversation starters. They're typically made from resin, wood, or metal with intricate designs, colors, or embedded objects. While they don't improve functionality, they add personality and uniqueness to your keyboard. Prices range from $20 to hundreds of dollars for rare pieces from renowned artisans.",
 			category: "keycaps",
 			is_featured: false,
-			related_products: ["artisan-collection", "custom-legend-set", "colorway-special"]
+			related_products: []
 		},
 		{
 			question: "How important is keyboard polling rate for gaming?",
 			answer: "Polling rate (measured in Hz) determines how often your keyboard reports key presses to your computer. Higher rates (1000Hz) mean lower input lag but use more CPU. For most gaming, 125Hz is sufficient, but competitive gamers may benefit from 1000Hz. The difference is minimal (8ms vs 1ms) and other factors like switch type, your reaction time, and monitor refresh rate have bigger impacts on gaming performance.",
 			category: "keyboards",
 			is_featured: false,
-			related_products: ["gaming-legend", "rgb-gaming-master", "speed-silver"]
+			related_products: []
 		},
 		{
 			question: "What's N-Key Rollover and Anti-Ghosting?",
 			answer: "N-Key Rollover (NKRO) means your keyboard can register unlimited simultaneous key presses without conflicts. Anti-ghosting prevents 'phantom' key presses when multiple keys are held. These features are crucial for gaming and fast typing where multiple keys might be pressed simultaneously. Most quality mechanical keyboards support at least 6-key rollover, while premium boards offer full NKRO.",
 			category: "keyboards",
 			is_featured: false,
-			related_products: ["gaming-legend", "professional-plus", "ultra-compact-60"]
+			related_products: []
 		},
 		{
 			question: "How do RGB keyboards work and are they worth it?",
 			answer: "RGB keyboards use LED lights under each key that can display millions of colors and effects. They're controlled by software allowing custom lighting patterns, reactive typing effects, and game integration. While purely aesthetic, RGB can improve visibility in dark environments and add personality to your setup. Consider whether you value customization and ambiance, as RGB typically adds $20-50 to keyboard cost.",
 			category: "keyboards",
 			is_featured: false,
-			related_products: ["rgb-gaming-master", "rgb-translucent", "neon-glow-set"]
+			related_products: []
 		},
 		{
 			question: "What tools do I need to build a custom keyboard?",
 			answer: "Basic custom keyboard building requires: switch pullers for hot-swap boards, keycap pullers for maintenance, screwdrivers for case assembly, and optionally a soldering iron for non-hot-swap builds. Advanced builders use switch lubing stations, films for switch modification, foam for sound dampening, and various stabilizer tools. Start with hot-swap kits to avoid soldering while learning the hobby.",
 			category: "accessories",
 			is_featured: false,
-			related_products: ["tool-set-complete", "lube-station-kit", "switch-puller-tool"]
+			related_products: []
 		},
 		{
 			question: "How do I reduce keyboard noise for office use?",
 			answer: "Several approaches reduce keyboard noise: choose linear or tactile switches over clicky ones, use dampening foam inside the case, install O-rings under keycaps to reduce bottom-out sound, ensure proper stabilizer lubrication, and consider a desk mat to absorb vibrations. Silent switches like Cherry MX Silent Red are specifically designed for quiet operation while maintaining mechanical feel.",
 			category: "general",
 			is_featured: false,
-			related_products: ["silent-stealth", "silent-black", "foam-dampener", "o-ring-kit"]
+			related_products: []
+		},
+		{
+			question: "What's the difference between gasket mount and tray mount keyboards?",
+			answer: "Gasket mount keyboards use gaskets (rubber strips) between the plate and case, creating a bouncy, premium typing feel with better sound dampening. Tray mount keyboards screw the PCB directly to the case, creating a stiffer, more direct feel. Gasket mount is preferred by enthusiasts for its flexibility and acoustic properties, while tray mount is more common and cost-effective.",
+			category: "keyboards",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "How do I choose the right keyboard size for my workspace?",
+			answer: "Consider your desk space and usage: Full-size keyboards (104 keys) need the most space but include numpad for data entry. TKL (87 keys) saves space while keeping function keys. 75% keyboards are compact but retain function keys. 65% keyboards (68 keys) are popular for their balance of functionality and space savings. 60% keyboards (61 keys) are ultra-compact but require function layers for arrows and F-keys.",
+			category: "keyboards",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "What's the importance of keycap material thickness?",
+			answer: "Thicker keycaps (1.5mm+ PBT or 1.4mm+ ABS) produce deeper, more satisfying sounds and feel more premium. Thin keycaps (1.2mm or less) sound hollow and cheap. Thickness affects durability - thicker caps resist wear and maintain their legends longer. It also impacts acoustics significantly, with thicker caps generally producing better, deeper sound profiles that enthusiasts prefer.",
+			category: "keycaps",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "What are group buys and why do keyboard enthusiasts use them?",
+			answer: "Group buys are pre-orders for limited keyboard products where manufacturers only produce items if minimum orders are met. They allow access to unique, high-quality products that wouldn't be viable for regular production. However, they require patience (3-12+ month waits), upfront payment, and carry risks. They're popular because they enable innovative designs and premium materials at lower costs through bulk purchasing.",
+			category: "general",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "How do I know if my keyboard has good build quality?",
+			answer: "Check for solid construction with minimal flex when typing, consistent key feel across all keys, stable larger keys (spacebar, shift, enter), no rattling or pinging sounds, clean legends that won't fade, proper spacing and alignment, and responsive switches. Premium keyboards use quality materials like aluminum cases, steel plates, and name-brand switches. Poor keyboards feel hollow, have inconsistent keys, and use cheap plastics.",
+			category: "keyboards",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "What's the difference between PCB-mounted and plate-mounted switches?",
+			answer: "PCB-mounted switches have 5 pins (2 electrical, 3 plastic) and mount directly to the PCB for stability. Plate-mounted switches have 3 pins and rely on the plate for positioning. PCB-mount provides better switch stability and alignment, especially for premium switches. Plate-mount is more common and works with most keyboards. Many enthusiasts prefer PCB-mount for the superior feel and reduced wobble.",
+			category: "switches",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "How do I break in new mechanical switches?",
+			answer: "New switches often feel scratchy and benefit from break-in. Type regularly for 1-2 weeks or use switch breaking tools. The plastic components wear against each other, becoming smoother. Some enthusiasts manually actuate switches hundreds of times before installation. Lubrication accelerates this process. Pre-lubed premium switches need less break-in, while budget switches may require more time to reach optimal smoothness.",
+			category: "switches",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "What's the purpose of foam modifications in keyboards?",
+			answer: "Foam modifications improve acoustics and typing feel by dampening hollow case sounds, reducing ping and echo, and creating a deeper sound profile. Case foam goes between PCB and case bottom, plate foam sits between PCB and plate, and PE foam can be placed in various locations. Different foam densities affect sound differently - denser foams provide more dampening while maintaining tactility.",
+			category: "accessories",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "How do I fix sticky or unresponsive keys?",
+			answer: "First, try compressed air to remove debris. For sticky keys, remove the keycap and clean the switch stem and housing with isopropyl alcohol on a cotton swab. For unresponsive keys, check for bent contact leaves or debris in the switch housing. Sometimes switches need replacement. Spill damage often requires thorough cleaning or complete switch replacement. Prevention is key - avoid eating/drinking near keyboards.",
+			category: "general",
+			is_featured: false,
+			related_products: []
+		},
+		{
+			question: "What should I look for in a keyboard cable?",
+			answer: "Choose cables based on your connector (USB-C, Mini-USB, or proprietary), desired length, and aesthetic preferences. Quality cables use proper shielding to prevent interference, gold-plated connectors for corrosion resistance, and durable jacket materials. Coiled cables look premium but are less practical for frequent disconnection. Detachable cables aid portability. Avoid cheap cables that may cause connection issues or limit polling rates.",
+			category: "cables",
+			is_featured: false,
+			related_products: []
 		}
 	];
 }
@@ -275,9 +345,17 @@ function loadSeedData(): SeedData {
 	if (existsSync(seedFilePath)) {
 		try {
 			const rawData = readFileSync(seedFilePath, 'utf-8');
-			const data = JSON.parse(rawData) as SeedData;
+			const data = JSON.parse(rawData) as any;
 			console.log('Loaded seed data from productseed.json');
-			return data;
+			
+			// Ensure FAQs exist, if not generate them
+			const seedData: SeedData = {
+				categories: data.categories || APP_CONFIG.categories,
+				products: data.products || [],
+				faqs: data.faqs || generateFAQs()
+			};
+			
+			return seedData;
 		} catch (error) {
 			console.warn('Failed to load productseed.json, generating random data:', error);
 		}
@@ -410,34 +488,36 @@ export function seedDatabase() {
 			const faqId = faqResult.lastInsertRowid;
 			faqCount++;
 			
-			// Insert related products if any
-			if (faq.related_products && faq.related_products.length > 0) {
-				const categoryMatch = faq.category === 'keyboards' ? 'keyboards' :
-									faq.category === 'switches' ? 'switches' :
-									faq.category === 'keycaps' ? 'keycaps' :
-									faq.category === 'cables' ? 'cables' :
-									'accessories';
-									
-				// Get multiple products from the matching category
-				const categoryProducts = db.prepare(`
-					SELECT p.id FROM products p
-					JOIN categories c ON p.category_id = c.id
-					WHERE c.slug = ?
-					ORDER BY RANDOM()
-					LIMIT 5
-				`).all(categoryMatch) as any[];
+			// Link FAQs to relevant products based on category
+			const categoryMatch = faq.category === 'keyboards' ? 'keyboards' :
+								  faq.category === 'switches' ? 'switches' :
+								  faq.category === 'keycaps' ? 'keycaps' :
+								  faq.category === 'cables' ? 'cables' :
+								  faq.category === 'accessories' ? 'accessories' :
+								  'keyboards'; // Default to keyboards for general category
+								  
+			// Get multiple products from the matching category
+			const categoryProducts = db.prepare(`
+				SELECT p.id FROM products p
+				JOIN categories c ON p.category_id = c.id
+				WHERE c.slug = ?
+				ORDER BY RANDOM()
+				LIMIT 3
+			`).all(categoryMatch) as any[];
+			
+			// Link 1-3 random products to each FAQ
+			let linkedCount = 0;
+			const maxLinks = Math.min(categoryProducts.length, Math.floor(Math.random() * 3) + 1); // 1-3 products
+			
+			for (const product of categoryProducts) {
+				if (linkedCount >= maxLinks) break;
 				
-				let linkedCount = 0;
-				for (const product of categoryProducts) {
-					if (linkedCount >= Math.min(faq.related_products.length, 3)) break;
-					
-					const pairKey = `${faqId}-${product.id}`;
-					if (!usedFAQProductPairs.has(pairKey)) {
-						queries.insertFAQProduct.run(faqId, product.id, linkedCount);
-						usedFAQProductPairs.add(pairKey);
-						faqProductCount++;
-						linkedCount++;
-					}
+				const pairKey = `${faqId}-${product.id}`;
+				if (!usedFAQProductPairs.has(pairKey)) {
+					queries.insertFAQProduct.run(faqId, product.id, linkedCount);
+					usedFAQProductPairs.add(pairKey);
+					faqProductCount++;
+					linkedCount++;
 				}
 			}
 		}

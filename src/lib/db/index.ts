@@ -231,9 +231,10 @@ function initQueries() {
 		`),
 		
 		getFAQProducts: db.prepare(`
-			SELECT fp.*, p.name, p.slug, p.price
+			SELECT fp.*, p.name, p.slug, p.price, c.slug as category_slug
 			FROM faq_products fp
 			LEFT JOIN products p ON fp.product_id = p.id
+			LEFT JOIN categories c ON p.category_id = c.id
 			WHERE fp.faq_id = ?
 			ORDER BY fp.sort_order ASC
 		`)
@@ -298,4 +299,5 @@ export interface FAQProduct {
 	name?: string;
 	slug?: string;
 	price?: number;
+	category_slug?: string;
 }

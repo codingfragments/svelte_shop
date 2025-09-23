@@ -1,0 +1,1037 @@
+{
+  "categories": [
+    {
+      "id": "keyboards",
+      "name": "Keyboards",
+      "description": "Premium mechanical keyboards for enthusiasts",
+      "slug": "keyboards",
+      "icon": "⌨️"
+    },
+    {
+      "id": "keycaps",
+      "name": "Keycaps",
+      "description": "Custom keycap sets to personalize your keyboard",
+      "slug": "keycaps",
+      "icon": "🔤"
+    },
+    {
+      "id": "switches",
+      "name": "Switches",
+      "description": "Mechanical switches for the perfect typing experience",
+      "slug": "switches",
+      "icon": "🔘"
+    },
+    {
+      "id": "cables",
+      "name": "Cables",
+      "description": "Custom cables and connectors",
+      "slug": "cables",
+      "icon": "🔌"
+    },
+    {
+      "id": "accessories",
+      "name": "Accessories",
+      "description": "Tools, stands, and other keyboard accessories",
+      "slug": "accessories",
+      "icon": "🛠️"
+    }
+  ],
+  "products": [
+    {
+      "name": "Professional Plus",
+      "description": "Custom Keyboard featuring premium materials and expert craftsmanship.",
+      "price": 165.61,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 23,
+      "sku": "KEYBOARDS-001",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/0b1b9eec-f15e-4ada-9470-742b06507429.png"
+      ]
+    },
+    {
+      "name": "Wireless Freedom",
+      "description": "High-performance Keyboard perfect for gaming, typing, and professional work.",
+      "price": 147.89,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 12,
+      "sku": "KEYBOARDS-002",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/28ab0058-2640-4d88-8dd6-0c7e07b4873a.png",
+        "/images/keyboards/47925b4c-17e7-4649-a97e-331134593849.png",
+        "/images/keyboards/627b48c9-ee1e-42fe-9620-55f8c36dc772.png"
+      ]
+    },
+    {
+      "name": "Mechanical Pro X1",
+      "description": "Premium Keyboard designed for enthusiasts who demand the best quality and performance.",
+      "price": 119.46,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 1,
+      "sku": "KEYBOARDS-003",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/28ab0058-2640-4d88-8dd6-0c7e07b4873a.png",
+        "/images/keyboards/06fb473e-2371-49c4-b5a2-d7c3293864d6.png"
+      ]
+    },
+    {
+      "name": "Silent Stealth",
+      "description": "Next-generation Keyboard with innovative design and superior functionality.",
+      "price": 192.27,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 80,
+      "sku": "KEYBOARDS-004",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/06fb473e-2371-49c4-b5a2-d7c3293864d6.png",
+        "/images/keyboards/4fd245a2-34f0-4aab-bb93-ccbe8db1c27f.png",
+        "/images/keyboards/f0f6900e-6cdd-4aae-a567-0465b856c12b.png"
+      ]
+    },
+    {
+      "name": "Compact Travel",
+      "description": "Next-generation Keyboard with innovative design and superior functionality.",
+      "price": 242.64,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 59,
+      "sku": "KEYBOARDS-005",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/28ab0058-2640-4d88-8dd6-0c7e07b4873a.png"
+      ]
+    },
+    {
+      "name": "Gaming Legend",
+      "description": "Professional-grade Keyboard with exceptional build quality and attention to detail.",
+      "price": 173.05,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 91,
+      "sku": "KEYBOARDS-006",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/557e2d72-2151-4cc8-86d8-35fa44538c8d.png"
+      ]
+    },
+    {
+      "name": "Professional Plus",
+      "description": "Next-generation Keyboard with innovative design and superior functionality.",
+      "price": 167.09,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 91,
+      "sku": "KEYBOARDS-007",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/f1d7f23c-48e6-4aef-971a-72d18e11462b.png",
+        "/images/keyboards/06fb473e-2371-49c4-b5a2-d7c3293864d6.png"
+      ]
+    },
+    {
+      "name": "Wireless Elite",
+      "description": "High-performance Keyboard perfect for gaming, typing, and professional work.",
+      "price": 224.95,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 59,
+      "sku": "KEYBOARDS-008",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/5e589fde-d576-45c4-9706-2e5fd1b437c8.png",
+        "/images/keyboards/3b616198-ebd8-4f91-a08b-6289d3141aa9.png"
+      ]
+    },
+    {
+      "name": "Hot-Swap Ready",
+      "description": "Custom Keyboard featuring premium materials and expert craftsmanship.",
+      "price": 196.08,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 36,
+      "sku": "KEYBOARDS-009",
+      "featured": 1,
+      "pictures": [
+        "/images/keyboards/4fd245a2-34f0-4aab-bb93-ccbe8db1c27f.png",
+        "/images/keyboards/a8c43f98-e211-40d5-975d-af74f3b4b088.png"
+      ]
+    },
+    {
+      "name": "Hot-Swap Ready",
+      "description": "Premium Keyboard designed for enthusiasts who demand the best quality and performance.",
+      "price": 280.46,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 59,
+      "sku": "KEYBOARDS-010",
+      "featured": 1,
+      "pictures": [
+        "/images/keyboards/3b616198-ebd8-4f91-a08b-6289d3141aa9.png",
+        "/images/keyboards/557e2d72-2151-4cc8-86d8-35fa44538c8d.png"
+      ]
+    },
+    {
+      "name": "Ultra Compact 60%",
+      "description": "Professional-grade Keyboard with exceptional build quality and attention to detail.",
+      "price": 188.86,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 34,
+      "sku": "KEYBOARDS-011",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/60ae248b-9ac7-4b68-8987-0a7fc3d641da.png",
+        "/images/keyboards/47925b4c-17e7-4649-a97e-331134593849.png",
+        "/images/keyboards/f0f6900e-6cdd-4aae-a567-0465b856c12b.png"
+      ]
+    },
+    {
+      "name": "Minimalist White",
+      "description": "High-performance Keyboard perfect for gaming, typing, and professional work.",
+      "price": 149.32,
+      "category": "keyboards",
+      "in_stock": 0,
+      "stock_quantity": 73,
+      "sku": "KEYBOARDS-012",
+      "featured": 1,
+      "pictures": [
+        "/images/keyboards/627b48c9-ee1e-42fe-9620-55f8c36dc772.png",
+        "/images/keyboards/47925b4c-17e7-4649-a97e-331134593849.png",
+        "/images/keyboards/226ff6d1-5938-4ed1-bf46-6c6aca937e23.png"
+      ]
+    },
+    {
+      "name": "Mechanical Pro X1",
+      "description": "Next-generation Keyboard with innovative design and superior functionality.",
+      "price": 217.07,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 79,
+      "sku": "KEYBOARDS-013",
+      "featured": 1,
+      "pictures": [
+        "/images/keyboards/0b1b9eec-f15e-4ada-9470-742b06507429.png",
+        "/images/keyboards/28ab0058-2640-4d88-8dd6-0c7e07b4873a.png"
+      ]
+    },
+    {
+      "name": "Hot-Swap Ready",
+      "description": "Custom Keyboard featuring premium materials and expert craftsmanship.",
+      "price": 121.59,
+      "category": "keyboards",
+      "in_stock": 1,
+      "stock_quantity": 94,
+      "sku": "KEYBOARDS-014",
+      "featured": 0,
+      "pictures": [
+        "/images/keyboards/557e2d72-2151-4cc8-86d8-35fa44538c8d.png",
+        "/images/keyboards/226ff6d1-5938-4ed1-bf46-6c6aca937e23.png"
+      ]
+    },
+    {
+      "name": "Custom Legend Set",
+      "description": "Custom Keycap featuring premium materials and expert craftsmanship.",
+      "price": 96.56,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 10,
+      "sku": "KEYCAPS-001",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/46aa9833-5a4e-4710-b599-624ae333731b.png"
+      ]
+    },
+    {
+      "name": "Sunset Orange",
+      "description": "Custom Keycap featuring premium materials and expert craftsmanship.",
+      "price": 148.19,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 29,
+      "sku": "KEYCAPS-002",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/87263e4d-6b78-411c-bbe7-f3e375b3a5d1.png",
+        "/images/keycaps/431b9da1-b636-475a-adb0-f2014d64c5af.png"
+      ]
+    },
+    {
+      "name": "Professional Black",
+      "description": "Premium Keycap designed for enthusiasts who demand the best quality and performance.",
+      "price": 138.13,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 80,
+      "sku": "KEYCAPS-003",
+      "featured": 1,
+      "pictures": [
+        "/images/keycaps/2072f3de-b9a1-4e6e-a760-679d6b248a73.png",
+        "/images/keycaps/98fde11c-1020-4645-bd94-0f2088be5fcf.png"
+      ]
+    },
+    {
+      "name": "Cherry Profile Set",
+      "description": "Professional-grade Keycap with exceptional build quality and attention to detail.",
+      "price": 104.31,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 4,
+      "sku": "KEYCAPS-004",
+      "featured": 1,
+      "pictures": [
+        "/images/keycaps/ba6455b4-2570-4dfb-8134-64d9853db4d2.png",
+        "/images/keycaps/2072f3de-b9a1-4e6e-a760-679d6b248a73.png"
+      ]
+    },
+    {
+      "name": "Pastel Dream",
+      "description": "Custom Keycap featuring premium materials and expert craftsmanship.",
+      "price": 55.38,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 58,
+      "sku": "KEYCAPS-005",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/ee6ea3a3-add3-48f1-83de-90304df113a7.png",
+        "/images/keycaps/59a6271a-2ae6-4a52-8f2f-e6fc99c05ba4.png"
+      ]
+    },
+    {
+      "name": "Blank Minimalist",
+      "description": "Next-generation Keycap with innovative design and superior functionality.",
+      "price": 105.6,
+      "category": "keycaps",
+      "in_stock": 0,
+      "stock_quantity": 19,
+      "sku": "KEYCAPS-006",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/27f525ef-b4e2-42c4-bfac-1c0d8db31634.png"
+      ]
+    },
+    {
+      "name": "Gaming Legend Set",
+      "description": "High-performance Keycap perfect for gaming, typing, and professional work.",
+      "price": 133.61,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 93,
+      "sku": "KEYCAPS-007",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/87263e4d-6b78-411c-bbe7-f3e375b3a5d1.png",
+        "/images/keycaps/431b9da1-b636-475a-adb0-f2014d64c5af.png"
+      ]
+    },
+    {
+      "name": "Cherry Profile Set",
+      "description": "Premium Keycap designed for enthusiasts who demand the best quality and performance.",
+      "price": 124.53,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 13,
+      "sku": "KEYCAPS-008",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/2072f3de-b9a1-4e6e-a760-679d6b248a73.png",
+        "/images/keycaps/5db27ec2-d4cb-4959-b200-440492eafb5e.png",
+        "/images/keycaps/87263e4d-6b78-411c-bbe7-f3e375b3a5d1.png"
+      ]
+    },
+    {
+      "name": "Retro Vintage",
+      "description": "Next-generation Keycap with innovative design and superior functionality.",
+      "price": 100.75,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 89,
+      "sku": "KEYCAPS-009",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/ba6455b4-2570-4dfb-8134-64d9853db4d2.png",
+        "/images/keycaps/5b62a81c-e59f-4b5d-99f8-953232ce3fe6.png",
+        "/images/keycaps/bfe9b056-e10d-4901-bad2-f5da62430d09.png"
+      ]
+    },
+    {
+      "name": "Cherry Profile Set",
+      "description": "Custom Keycap featuring premium materials and expert craftsmanship.",
+      "price": 147.33,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 3,
+      "sku": "KEYCAPS-010",
+      "featured": 0,
+      "pictures": [
+        "/images/keycaps/5db27ec2-d4cb-4959-b200-440492eafb5e.png",
+        "/images/keycaps/2072f3de-b9a1-4e6e-a760-679d6b248a73.png"
+      ]
+    },
+    {
+      "name": "OEM Double Shot",
+      "description": "Professional-grade Keycap with exceptional build quality and attention to detail.",
+      "price": 92.03,
+      "category": "keycaps",
+      "in_stock": 1,
+      "stock_quantity": 89,
+      "sku": "KEYCAPS-011",
+      "featured": 1,
+      "pictures": [
+        "/images/keycaps/2072f3de-b9a1-4e6e-a760-679d6b248a73.png"
+      ]
+    },
+    {
+      "name": "Custom Lubed",
+      "description": "Professional-grade Switche with exceptional build quality and attention to detail.",
+      "price": 0.92,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 76,
+      "sku": "SWITCHES-001",
+      "featured": 1,
+      "pictures": [
+        "/images/switches/3657fb04-5865-4271-a524-d1780c3bde1f.png",
+        "/images/switches/30e973bf-f3a9-40da-a092-e7a5db37d198.png"
+      ]
+    },
+    {
+      "name": "Tactile Brown Elite",
+      "description": "High-performance Switche perfect for gaming, typing, and professional work.",
+      "price": 1.26,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 32,
+      "sku": "SWITCHES-002",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/5989f927-2fce-4e7f-a2b2-b33c9d829039.png"
+      ]
+    },
+    {
+      "name": "Custom Lubed",
+      "description": "Next-generation Switche with innovative design and superior functionality.",
+      "price": 0.86,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 98,
+      "sku": "SWITCHES-003",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/18916def-5d6c-4aec-8173-158681f76c3a.png",
+        "/images/switches/3657fb04-5865-4271-a524-d1780c3bde1f.png"
+      ]
+    },
+    {
+      "name": "Creamy White",
+      "description": "Professional-grade Switche with exceptional build quality and attention to detail.",
+      "price": 1.81,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 24,
+      "sku": "SWITCHES-004",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/44e06115-34c6-4523-b425-078ee6e8b4c6.png",
+        "/images/switches/18916def-5d6c-4aec-8173-158681f76c3a.png",
+        "/images/switches/34ea92d6-1be7-48ca-9bb0-7a2b95135a49.png"
+      ]
+    },
+    {
+      "name": "Creamy White",
+      "description": "Next-generation Switche with innovative design and superior functionality.",
+      "price": 1.75,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 82,
+      "sku": "SWITCHES-005",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/274b17b7-ec78-454c-884d-2902b4afff29.png"
+      ]
+    },
+    {
+      "name": "Linear Red Pro",
+      "description": "Next-generation Switche with innovative design and superior functionality.",
+      "price": 1.89,
+      "category": "switches",
+      "in_stock": 0,
+      "stock_quantity": 41,
+      "sku": "SWITCHES-006",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/8ce95408-93a8-478c-8bfa-c5416da3e38e.png",
+        "/images/switches/96f3fd5c-0efc-4297-b5a8-9a7485cff3db.png",
+        "/images/switches/c617de1f-8b9c-4cf9-8cce-4975a535f8e7.png"
+      ]
+    },
+    {
+      "name": "Speed Silver",
+      "description": "Custom Switche featuring premium materials and expert craftsmanship.",
+      "price": 1.05,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 20,
+      "sku": "SWITCHES-007",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/39c62874-e68e-4446-b4a6-f40282c92f5c.png",
+        "/images/switches/44e06115-34c6-4523-b425-078ee6e8b4c6.png",
+        "/images/switches/96f3fd5c-0efc-4297-b5a8-9a7485cff3db.png"
+      ]
+    },
+    {
+      "name": "Gateron Yellow",
+      "description": "High-performance Switche perfect for gaming, typing, and professional work.",
+      "price": 1.4,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 50,
+      "sku": "SWITCHES-008",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/39c62874-e68e-4446-b4a6-f40282c92f5c.png",
+        "/images/switches/44e06115-34c6-4523-b425-078ee6e8b4c6.png"
+      ]
+    },
+    {
+      "name": "Heavy Clear",
+      "description": "High-performance Switche perfect for gaming, typing, and professional work.",
+      "price": 1.22,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 51,
+      "sku": "SWITCHES-009",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/18916def-5d6c-4aec-8173-158681f76c3a.png",
+        "/images/switches/8ce95408-93a8-478c-8bfa-c5416da3e38e.png"
+      ]
+    },
+    {
+      "name": "Alpaca Linear",
+      "description": "Next-generation Switche with innovative design and superior functionality.",
+      "price": 0.7,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 26,
+      "sku": "SWITCHES-010",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/274b17b7-ec78-454c-884d-2902b4afff29.png",
+        "/images/switches/96f3fd5c-0efc-4297-b5a8-9a7485cff3db.png"
+      ]
+    },
+    {
+      "name": "Heavy Clear",
+      "description": "Premium Switche designed for enthusiasts who demand the best quality and performance.",
+      "price": 0.96,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 25,
+      "sku": "SWITCHES-011",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/18916def-5d6c-4aec-8173-158681f76c3a.png",
+        "/images/switches/39c62874-e68e-4446-b4a6-f40282c92f5c.png",
+        "/images/switches/96f3fd5c-0efc-4297-b5a8-9a7485cff3db.png"
+      ]
+    },
+    {
+      "name": "Cherry MX Blue",
+      "description": "Premium Switche designed for enthusiasts who demand the best quality and performance.",
+      "price": 0.75,
+      "category": "switches",
+      "in_stock": 1,
+      "stock_quantity": 62,
+      "sku": "SWITCHES-012",
+      "featured": 0,
+      "pictures": [
+        "/images/switches/8ce95408-93a8-478c-8bfa-c5416da3e38e.png",
+        "/images/switches/57034ba3-9877-4232-913c-44285d87bec1.png"
+      ]
+    },
+    {
+      "name": "Kailh Box White",
+      "description": "Professional-grade Switche with exceptional build quality and attention to detail.",
+      "price": 1.71,
+      "category": "switches",
+      "in_stock": 0,
+      "stock_quantity": 15,
+      "sku": "SWITCHES-013",
+      "featured": 1,
+      "pictures": [
+        "/images/switches/c01456c0-a4ea-4f76-804b-d810d1a5526a.png"
+      ]
+    },
+    {
+      "name": "Vintage White",
+      "description": "Professional-grade Switche with exceptional build quality and attention to detail.",
+      "price": 1.01,
+      "category": "switches",
+      "in_stock": 0,
+      "stock_quantity": 26,
+      "sku": "SWITCHES-014",
+      "featured": 1,
+      "pictures": [
+        "/images/switches/0d7d8cd9-2470-4527-b2a5-24ebf76385eb.png"
+      ]
+    },
+    {
+      "name": "Custom Length",
+      "description": "Next-generation Cable with innovative design and superior functionality.",
+      "price": 28.28,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 17,
+      "sku": "CABLES-001",
+      "featured": 1,
+      "pictures": [
+        "/images/cables/3940924f-aead-4c87-9d57-b3fb02e0836e.png",
+        "/images/cables/397942c9-9856-457a-861b-acc8683dbbdb.png"
+      ]
+    },
+    {
+      "name": "Coiled USB-C Pro",
+      "description": "Custom Cable featuring premium materials and expert craftsmanship.",
+      "price": 77.48,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 22,
+      "sku": "CABLES-002",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/d477e2bd-d0c1-4675-9b2a-4b2ce46d08cc.png",
+        "/images/cables/cefc3fb7-2938-45f1-b6ed-495adadec46f.png",
+        "/images/cables/f4c32082-0890-4656-a86d-71cff77f4046.png"
+      ]
+    },
+    {
+      "name": "Gold Plated",
+      "description": "Premium Cable designed for enthusiasts who demand the best quality and performance.",
+      "price": 36.33,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 50,
+      "sku": "CABLES-003",
+      "featured": 1,
+      "pictures": [
+        "/images/cables/5bcb889f-289d-4c1f-98b2-c13f454e927e.png",
+        "/images/cables/74a0e149-0690-4494-9158-a3e3dcc957bb.png",
+        "/images/cables/fa2d18e9-fc3e-44cb-8803-9e9471661d5f.png"
+      ]
+    },
+    {
+      "name": "Quick Connect",
+      "description": "High-performance Cable perfect for gaming, typing, and professional work.",
+      "price": 44.15,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 96,
+      "sku": "CABLES-004",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/4514b181-97fb-4a10-a960-0704b63e1d8a.png"
+      ]
+    },
+    {
+      "name": "Coiled USB-C Pro",
+      "description": "Custom Cable featuring premium materials and expert craftsmanship.",
+      "price": 48.52,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 11,
+      "sku": "CABLES-005",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/fa2d18e9-fc3e-44cb-8803-9e9471661d5f.png",
+        "/images/cables/65af3715-e11e-4dba-8929-55b80fe9a349.png",
+        "/images/cables/f4c32082-0890-4656-a86d-71cff77f4046.png"
+      ]
+    },
+    {
+      "name": "Ultra Flexible",
+      "description": "Custom Cable featuring premium materials and expert craftsmanship.",
+      "price": 57.53,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 51,
+      "sku": "CABLES-006",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/74a0e149-0690-4494-9158-a3e3dcc957bb.png"
+      ]
+    },
+    {
+      "name": "Ultra Flexible",
+      "description": "High-performance Cable perfect for gaming, typing, and professional work.",
+      "price": 63.81,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 21,
+      "sku": "CABLES-007",
+      "featured": 1,
+      "pictures": [
+        "/images/cables/412feb93-7684-4489-8c08-73158220c85b.png",
+        "/images/cables/397942c9-9856-457a-861b-acc8683dbbdb.png",
+        "/images/cables/ba86c13c-31b5-4f93-929c-f2651c5cc8db.png"
+      ]
+    },
+    {
+      "name": "Color Matched",
+      "description": "Custom Cable featuring premium materials and expert craftsmanship.",
+      "price": 37.15,
+      "category": "cables",
+      "in_stock": 0,
+      "stock_quantity": 3,
+      "sku": "CABLES-008",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/397942c9-9856-457a-861b-acc8683dbbdb.png",
+        "/images/cables/d477e2bd-d0c1-4675-9b2a-4b2ce46d08cc.png"
+      ]
+    },
+    {
+      "name": "Heavy Duty",
+      "description": "Premium Cable designed for enthusiasts who demand the best quality and performance.",
+      "price": 60.67,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 13,
+      "sku": "CABLES-009",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/3940924f-aead-4c87-9d57-b3fb02e0836e.png"
+      ]
+    },
+    {
+      "name": "Heavy Duty",
+      "description": "High-performance Cable perfect for gaming, typing, and professional work.",
+      "price": 65.25,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 1,
+      "sku": "CABLES-010",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/4514b181-97fb-4a10-a960-0704b63e1d8a.png",
+        "/images/cables/65af3715-e11e-4dba-8929-55b80fe9a349.png",
+        "/images/cables/cefc3fb7-2938-45f1-b6ed-495adadec46f.png"
+      ]
+    },
+    {
+      "name": "Flexible Coil",
+      "description": "Custom Cable featuring premium materials and expert craftsmanship.",
+      "price": 52.06,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 38,
+      "sku": "CABLES-011",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/74a0e149-0690-4494-9158-a3e3dcc957bb.png"
+      ]
+    },
+    {
+      "name": "Flexible Coil",
+      "description": "Professional-grade Cable with exceptional build quality and attention to detail.",
+      "price": 79,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 76,
+      "sku": "CABLES-012",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/fa2d18e9-fc3e-44cb-8803-9e9471661d5f.png",
+        "/images/cables/fd36529d-901e-4c95-a976-c73186ff3628.png",
+        "/images/cables/397942c9-9856-457a-861b-acc8683dbbdb.png"
+      ]
+    },
+    {
+      "name": "Detachable Design",
+      "description": "Professional-grade Cable with exceptional build quality and attention to detail.",
+      "price": 53.19,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 69,
+      "sku": "CABLES-013",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/5bcb889f-289d-4c1f-98b2-c13f454e927e.png"
+      ]
+    },
+    {
+      "name": "Color Matched",
+      "description": "Next-generation Cable with innovative design and superior functionality.",
+      "price": 75.05,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 68,
+      "sku": "CABLES-014",
+      "featured": 1,
+      "pictures": [
+        "/images/cables/3940924f-aead-4c87-9d57-b3fb02e0836e.png",
+        "/images/cables/5bcb889f-289d-4c1f-98b2-c13f454e927e.png"
+      ]
+    },
+    {
+      "name": "Premium Sleeved",
+      "description": "Next-generation Cable with innovative design and superior functionality.",
+      "price": 69.54,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 25,
+      "sku": "CABLES-015",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/fa2d18e9-fc3e-44cb-8803-9e9471661d5f.png",
+        "/images/cables/cefc3fb7-2938-45f1-b6ed-495adadec46f.png"
+      ]
+    },
+    {
+      "name": "Custom Length",
+      "description": "High-performance Cable perfect for gaming, typing, and professional work.",
+      "price": 46.85,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 73,
+      "sku": "CABLES-016",
+      "featured": 1,
+      "pictures": [
+        "/images/cables/ba86c13c-31b5-4f93-929c-f2651c5cc8db.png",
+        "/images/cables/412feb93-7684-4489-8c08-73158220c85b.png"
+      ]
+    },
+    {
+      "name": "Coiled USB-C Pro",
+      "description": "High-performance Cable perfect for gaming, typing, and professional work.",
+      "price": 45.79,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 64,
+      "sku": "CABLES-017",
+      "featured": 1,
+      "pictures": [
+        "/images/cables/c3adf275-f8dd-4767-a6cc-6270f88c280c.png"
+      ]
+    },
+    {
+      "name": "Premium Sleeved",
+      "description": "Premium Cable designed for enthusiasts who demand the best quality and performance.",
+      "price": 32.52,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 94,
+      "sku": "CABLES-018",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/3940924f-aead-4c87-9d57-b3fb02e0836e.png",
+        "/images/cables/397942c9-9856-457a-861b-acc8683dbbdb.png"
+      ]
+    },
+    {
+      "name": "Ultra Flexible",
+      "description": "High-performance Cable perfect for gaming, typing, and professional work.",
+      "price": 76.87,
+      "category": "cables",
+      "in_stock": 1,
+      "stock_quantity": 95,
+      "sku": "CABLES-019",
+      "featured": 0,
+      "pictures": [
+        "/images/cables/412feb93-7684-4489-8c08-73158220c85b.png"
+      ]
+    },
+    {
+      "name": "Stabilizer Set",
+      "description": "Next-generation Accessorie with innovative design and superior functionality.",
+      "price": 69.83,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 5,
+      "sku": "ACCESSORIES-001",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/04c78457-5112-4d4c-b5f4-5577c8172ae5.png"
+      ]
+    },
+    {
+      "name": "Cable Management",
+      "description": "Premium Accessorie designed for enthusiasts who demand the best quality and performance.",
+      "price": 74.19,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 58,
+      "sku": "ACCESSORIES-002",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/57bfdf0e-a6cc-41cd-b697-84aa700b9cc9.png",
+        "/images/accessories/acea752b-d2f2-4d3b-9478-34c4d252ea89.png",
+        "/images/accessories/da1019fe-a07d-4c5a-b058-c270cca1ccdd.png"
+      ]
+    },
+    {
+      "name": "Lube Station Kit",
+      "description": "Professional-grade Accessorie with exceptional build quality and attention to detail.",
+      "price": 45.38,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 44,
+      "sku": "ACCESSORIES-003",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/1c05fd11-f189-46a2-a7c8-2ee033c050c9.png",
+        "/images/accessories/ed738180-747b-4b87-873a-7b72db7f8cfa.png"
+      ]
+    },
+    {
+      "name": "Switch Puller Tool",
+      "description": "Premium Accessorie designed for enthusiasts who demand the best quality and performance.",
+      "price": 60.12,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 87,
+      "sku": "ACCESSORIES-004",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/d3555771-d37d-4387-86d6-9738c87ac97c.png"
+      ]
+    },
+    {
+      "name": "Lube Station Kit",
+      "description": "Premium Accessorie designed for enthusiasts who demand the best quality and performance.",
+      "price": 56.31,
+      "category": "accessories",
+      "in_stock": 0,
+      "stock_quantity": 5,
+      "sku": "ACCESSORIES-005",
+      "featured": 1,
+      "pictures": [
+        "/images/accessories/0d2d9ad3-d90c-48f2-9eaa-082f7d15e629.png",
+        "/images/accessories/57bfdf0e-a6cc-41cd-b697-84aa700b9cc9.png",
+        "/images/accessories/b7f0711e-de25-4626-bd3b-cf33355e938e.png"
+      ]
+    },
+    {
+      "name": "Desk Mat Large",
+      "description": "High-performance Accessorie perfect for gaming, typing, and professional work.",
+      "price": 16.51,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 51,
+      "sku": "ACCESSORIES-006",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/04c78457-5112-4d4c-b5f4-5577c8172ae5.png",
+        "/images/accessories/57bfdf0e-a6cc-41cd-b697-84aa700b9cc9.png"
+      ]
+    },
+    {
+      "name": "Wrist Rest Ergonomic",
+      "description": "Premium Accessorie designed for enthusiasts who demand the best quality and performance.",
+      "price": 80.17,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 69,
+      "sku": "ACCESSORIES-007",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/93324da9-fafb-4c19-a7a4-b83647d02059.png",
+        "/images/accessories/50967936-3112-461e-b409-8d2cad1fd32b.png",
+        "/images/accessories/04c78457-5112-4d4c-b5f4-5577c8172ae5.png"
+      ]
+    },
+    {
+      "name": "Keycap Remover",
+      "description": "Next-generation Accessorie with innovative design and superior functionality.",
+      "price": 78.92,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 72,
+      "sku": "ACCESSORIES-008",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/e5f56827-c95b-46b5-88d1-99e04b49b97d.png",
+        "/images/accessories/50967936-3112-461e-b409-8d2cad1fd32b.png",
+        "/images/accessories/f1b64478-c373-49f1-bb36-80af38808159.png"
+      ]
+    },
+    {
+      "name": "Wrist Rest Ergonomic",
+      "description": "Custom Accessorie featuring premium materials and expert craftsmanship.",
+      "price": 76.84,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 14,
+      "sku": "ACCESSORIES-009",
+      "featured": 1,
+      "pictures": [
+        "/images/accessories/50967936-3112-461e-b409-8d2cad1fd32b.png"
+      ]
+    },
+    {
+      "name": "Wrist Rest Ergonomic",
+      "description": "High-performance Accessorie perfect for gaming, typing, and professional work.",
+      "price": 21.27,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 47,
+      "sku": "ACCESSORIES-010",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/b7f0711e-de25-4626-bd3b-cf33355e938e.png",
+        "/images/accessories/93324da9-fafb-4c19-a7a4-b83647d02059.png",
+        "/images/accessories/d3555771-d37d-4387-86d6-9738c87ac97c.png"
+      ]
+    },
+    {
+      "name": "Carrying Case Pro",
+      "description": "Professional-grade Accessorie with exceptional build quality and attention to detail.",
+      "price": 32.79,
+      "category": "accessories",
+      "in_stock": 0,
+      "stock_quantity": 75,
+      "sku": "ACCESSORIES-011",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/04c78457-5112-4d4c-b5f4-5577c8172ae5.png",
+        "/images/accessories/084f38e7-7d93-490c-9d3f-10e5d32457df.png",
+        "/images/accessories/b7f0711e-de25-4626-bd3b-cf33355e938e.png"
+      ]
+    },
+    {
+      "name": "Lube Station Kit",
+      "description": "Custom Accessorie featuring premium materials and expert craftsmanship.",
+      "price": 77.81,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 61,
+      "sku": "ACCESSORIES-012",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/98ffbfba-0393-4616-9089-2be019d57709.png"
+      ]
+    },
+    {
+      "name": "Switch Puller Tool",
+      "description": "Premium Accessorie designed for enthusiasts who demand the best quality and performance.",
+      "price": 17.73,
+      "category": "accessories",
+      "in_stock": 1,
+      "stock_quantity": 65,
+      "sku": "ACCESSORIES-013",
+      "featured": 0,
+      "pictures": [
+        "/images/accessories/ba300d95-fb57-4df4-91bd-2f5dc8e45b6c.png",
+        "/images/accessories/d3555771-d37d-4387-86d6-9738c87ac97c.png",
+        "/images/accessories/f92f3325-132c-4ca2-b634-f0c8e2474ad6.png"
+      ]
+    }
+  ]
+}

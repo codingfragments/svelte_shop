@@ -54,6 +54,14 @@
 				>
 					All Products
 				</a>
+				
+				<a 
+					href="/faq" 
+					class="text-text-primary hover:text-primary transition-colors font-medium"
+					class:text-primary={$page.url.pathname === '/faq'}
+				>
+					FAQ
+				</a>
 
 				<!-- Categories Dropdown -->
 				<div class="relative">
@@ -161,6 +169,14 @@
 					onclick={closeMenus}
 				>
 					All Products
+				</a>
+				
+				<a 
+					href="/faq" 
+					class="block py-2 text-text-primary hover:text-primary transition-colors font-medium"
+					onclick={closeMenus}
+				>
+					FAQ
 				</a>
 
 				<div class="border-t border-overlay0 pt-4">
