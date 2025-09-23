@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	{#if !import.meta.env.PROD}
+	{#if import.meta.env.MODE === 'staging'}
 		<script
 			data-recording-token="4c0XuAryTtycpLIrOIgASje0d1LlMb355Qz6qwDo"
 			data-is-production-environment="false"
