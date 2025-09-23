@@ -48,6 +48,7 @@
   "dependencies": {
     "@sveltejs/adapter-node": "^5.3.2",
     "better-sqlite3": "^12.3.0",
-    "dotenv": "^17.2.2"
+    "dotenv": "^17.2.2",
+    "posthog-js": "^1.268.1"
   }
 }
