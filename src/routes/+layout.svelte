@@ -3,6 +3,7 @@
 	import favicon from '$lib/assets/favicon.svg';
 	import Header from '$lib/components/Header.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Chatbot from '$lib/components/Chatbot.svelte';
 	// import posthog from 'posthog-js';
 	// import { browser } from '$app/environment';
 	let { children } = $props();
@@ -95,4 +96,6 @@
 	</main>
 
 	<Footer />
+
+	<Chatbot />
 </div>
