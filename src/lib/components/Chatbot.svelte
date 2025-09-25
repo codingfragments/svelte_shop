@@ -1,18 +1,32 @@
 <script lang="ts">
 	import { afterUpdate, onMount, tick } from 'svelte';
-	import type { ChatMessage } from '$lib/chat/eliza';
+	import { goto } from '$app/navigation';
+	import type { BotResponse, ChatMessage, ProductSuggestion } from '$lib/chat/eliza';
 	import { respond } from '$lib/chat/eliza';
 
 	const panelId = 'eliza-chat-panel';
 	let isOpen = false;
 	let draft = '';
+
+	function createId() {
+		return `${Date.now().toString(36)}-${Math.random().toString(16).slice(2, 8)}`;
+	}
+
 	let messages: ChatMessage[] = [
 		{
+			id: createId(),
 			from: 'bot',
-			text: 'Hi! I am Eliza, your shopping companion. What brings you in today?'
+			text: 'Hi! I’m Eliza, your sales concierge. Tell me what you’re hoping to level up and I’ll scout the perfect picks.'
 		}
 	];
 	let chatWindow: HTMLDivElement | null = null;
+
+	function formatPrice(price: number): string {
+		return new Intl.NumberFormat('en-US', {
+			style: 'currency',
+			currency: 'USD'
+		}).format(price);
+	}
 
 	function toggle() {
 		isOpen = !isOpen;
@@ -22,13 +36,41 @@
 		const text = draft.trim();
 		if (!text) return;
 
-		messages = [...messages, { from: 'user', text }];
+		messages = [...messages, { id: createId(), from: 'user', text }];
 		draft = '';
 
 		await tick();
 
-		const reply = respond(text);
-		messages = [...messages, { from: 'bot', text: reply }];
+		const reply: BotResponse = respond(text);
+
+		messages = [
+			...messages,
+			{
+				id: createId(),
+				from: 'bot',
+				text: reply.text
+			}
+		];
+
+		if (reply.suggestion) {
+			appendSuggestion(reply.suggestion);
+		}
+	}
+
+	function appendSuggestion(suggestion: ProductSuggestion) {
+		const suggestionMessage: ChatMessage = {
+			id: createId(),
+			from: 'bot',
+			suggestion
+		};
+
+		messages = [...messages, suggestionMessage];
+
+		if (suggestion.autoNavigate && suggestion.navigateTo) {
+			setTimeout(() => {
+				goto(suggestion.navigateTo!, { keepFocus: true });
+			}, 650);
+		}
 	}
 
 	afterUpdate(() => {
@@ -48,290 +90,121 @@
 	});
 </script>
 
-<div class="chat-shell">
+<div class="pointer-events-none fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2 sm:bottom-4 sm:right-4">
 	<button
 		type="button"
-		class={`chat-toggle ${isOpen ? 'chat-toggle--active' : 'chat-toggle--attention'}`}
+		class={`group relative flex items-center gap-2 overflow-visible rounded-full px-4 py-2 text-sm font-semibold shadow-[0_10px_35px_rgba(12,12,13,0.35)] transition-transform duration-150 focus-visible:scale-[1.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-transparent pointer-events-auto ${
+			isOpen
+				? 'bg-secondary text-crust'
+				: 'bg-primary text-crust motion-safe:animate-[pulse_2.5s_ease-in-out_infinite]'
+		}`}
 		on:click={toggle}
 		aria-expanded={isOpen}
 		aria-controls={panelId}
 	>
-		<div class="chat-toggle__avatar-wrap">
-			<img src="/images/chatbot/eliza-avatar.svg" alt="Eliza assistant avatar" class="chat-toggle__avatar" />
+		<span
+			class={`pointer-events-none absolute -inset-1 -z-10 rounded-full bg-[radial-gradient(circle_at_center,rgba(198,160,246,0.45),transparent_70%)] transition duration-200 ease-out ${
+				isOpen
+					? 'opacity-100 scale-105'
+					: 'opacity-0 scale-90 group-hover:opacity-100 group-hover:scale-110 group-focus-visible:opacity-100 group-focus-visible:scale-110'
+			}`}
+			aria-hidden="true"
+		></span>
+		<div
+			class={`relative grid size-10 place-items-center overflow-hidden rounded-full bg-bg-tertiary shadow-md transition-all duration-200 ${
+				isOpen
+					? 'size-20 shadow-xl'
+					: 'group-hover:size-20 group-hover:shadow-xl group-focus-visible:size-20 group-focus-visible:shadow-xl'
+			}`}
+		>
+			<img
+				src="/images/chatbot/eliza-avatar.svg"
+				alt="Eliza assistant avatar"
+				class={`size-full transition-transform duration-200 ${
+					isOpen
+						? 'scale-[1.9]'
+						: 'group-hover:scale-[1.9] group-focus-visible:scale-[1.9]'
+				}`}
+			/>
 		</div>
-		{#if isOpen}
-			<span>Close chat</span>
-		{:else}
-			<span>Need a hand?</span>
-		{/if}
+		<span class="relative">{isOpen ? 'Close chat' : 'Need a hand?'}</span>
 	</button>
 
 	{#if isOpen}
-		<section id={panelId} class="chat-panel" aria-live="polite">
-			<header class="chat-panel__header">Virtual Customer Coach</header>
-			<div bind:this={chatWindow} class="chat-panel__messages">
-				{#each messages as message}
-					<div class={`chat-row chat-row--${message.from}`}>
-						<p class={`chat-bubble chat-bubble--${message.from}`}>{message.text}</p>
+		<section
+			id={panelId}
+			class="pointer-events-auto flex w-80 flex-col overflow-hidden rounded-xl border border-overlay0 bg-bg-elevated text-text-primary shadow-[0_20px_45px_rgba(8,8,12,0.45)]"
+			aria-live="polite"
+		>
+			<header class="bg-gradient-to-r from-primary to-accent px-4 py-3 text-sm font-semibold text-crust">
+				Virtual Customer Coach
+			</header>
+			<div
+				bind:this={chatWindow}
+				class="flex max-h-96 flex-col gap-3 overflow-y-auto bg-bg-secondary px-4 py-3 text-sm"
+			>
+				{#each messages as message (message.id)}
+					<div class={`flex ${message.from === 'user' ? 'justify-end' : 'justify-start'}`}>
+						{#if message.suggestion}
+							{#if message.suggestion.style === 'card'}
+								<div class="max-w-[90%] rounded-3xl bg-bg-card p-4 text-left shadow-[0_4px_18px_rgba(0,0,0,0.2)]">
+									<p class="mb-3 text-sm text-text-primary/90">{message.suggestion.blurb}</p>
+									<div class="overflow-hidden rounded-2xl border border-overlay0 bg-bg-elevated">
+										<img
+											src={message.suggestion.product.image}
+											alt={message.suggestion.product.name}
+											class="h-36 w-full object-cover"
+										/>
+										<div class="space-y-2 p-4">
+											<h4 class="text-base font-semibold text-text-primary">{message.suggestion.product.name}</h4>
+											<p class="text-sm text-text-secondary">{message.suggestion.product.tagline}</p>
+											<p class="text-sm font-semibold text-primary">{formatPrice(message.suggestion.product.price)}</p>
+											<a
+												href={`/${message.suggestion.product.categorySlug}/${message.suggestion.product.slug}`}
+												class="inline-flex items-center justify-center rounded-full bg-primary px-4 py-2 text-sm font-semibold text-crust transition-colors hover:bg-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated"
+											>
+												{message.suggestion.ctaLabel ?? 'View product'}
+											</a>
+										</div>
+									</div>
+								</div>
+							{:else}
+								<p class="max-w-[85%] rounded-3xl bg-bg-card px-3 py-2 text-sm text-text-primary shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+									{@html message.suggestion.blurb}
+								</p>
+							{/if}
+						{:else if message.text}
+							<p
+								class={`max-w-[85%] rounded-3xl px-3 py-2 text-sm shadow-[0_4px_12px_rgba(0,0,0,0.15)] ${
+									message.from === 'user'
+										? 'bg-primary text-crust'
+										: 'bg-bg-card text-text-primary'
+								}`}
+							>
+								{message.text}
+							</p>
+						{/if}
 					</div>
 				{/each}
 			</div>
-			<form class="chat-panel__composer" on:submit|preventDefault={sendMessage}>
+			<form
+				on:submit|preventDefault={sendMessage}
+				class="flex items-center gap-2 border-t border-overlay0 bg-bg-elevated px-3 py-2"
+			>
 				<input
 					type="text"
-					class="chat-input"
+					class="h-10 flex-1 rounded-full border border-overlay1 bg-bg-secondary px-3 text-sm text-text-primary placeholder:text-text-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
 					placeholder="Ask about products, orders, shipping…"
 					bind:value={draft}
 					autocomplete="off"
 				/>
-				<button type="submit" class="chat-send">Send</button>
+				<button
+					type="submit"
+					class="h-10 rounded-full bg-secondary px-4 text-sm font-semibold text-crust transition-transform duration-150 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 focus-visible:ring-offset-bg-elevated"
+				>
+					Send
+				</button>
 			</form>
 		</section>
 	{/if}
 </div>
-
-<style>
-	.chat-shell {
-		pointer-events: none;
-		position: fixed;
-		bottom: 1.5rem;
-		right: 1.5rem;
-		z-index: 50;
-		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
-		gap: 0.5rem;
-	}
-
-	.chat-toggle {
-		position: relative;
-		pointer-events: auto;
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		border: none;
-		border-radius: 9999px;
-		padding: 0.5rem 1rem;
-		font-size: 0.875rem;
-		font-weight: 600;
-		cursor: pointer;
-		background-color: var(--color-primary, #c6a0f6);
-		color: var(--color-bg-tertiary, #181926);
-		box-shadow: 0 10px 35px rgba(12, 12, 13, 0.35);
-		transition: transform 0.15s ease, filter 0.15s ease;
-	}
-
-	.chat-toggle::after {
-		content: '';
-		position: absolute;
-		inset: -0.4rem;
-		border-radius: inherit;
-		background: radial-gradient(circle at center, rgba(198, 160, 246, 0.45), transparent 70%);
-		opacity: 0;
-		transform: scale(0.9);
-		transition: opacity 0.2s ease, transform 0.2s ease;
-		z-index: -1;
-	}
-
-	.chat-toggle:hover,
-	.chat-toggle:focus-visible {
-		transform: scale(1.03);
-		filter: brightness(1.05);
-	}
-
-	.chat-toggle:hover::after,
-	.chat-toggle:focus-visible::after {
-		opacity: 1;
-		transform: scale(1.1);
-	}
-
-	.chat-toggle--active {
-		background-color: var(--color-secondary, #b7bdf8);
-	}
-
-	.chat-toggle--attention {
-		animation: chat-pulse 2.5s ease-in-out infinite;
-	}
-
-	.chat-toggle--attention::after {
-		opacity: 0.75;
-		animation: chat-glow 2.5s ease-in-out infinite;
-	}
-
-	.chat-toggle__avatar-wrap {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		height: 2.5rem;
-		width: 2.5rem;
-		border-radius: 9999px;
-		background-color: var(--color-bg-tertiary, #181926);
-		box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-		overflow: hidden;
-		transition: width 0.25s ease, height 0.25s ease, transform 0.25s ease;
-	}
-
-	.chat-toggle__avatar {
-		height: 100%;
-		width: 100%;
-		transition: transform 0.25s ease;
-		transform-origin: center;
-	}
-
-	.chat-toggle:hover .chat-toggle__avatar-wrap,
-	.chat-toggle:focus-visible .chat-toggle__avatar-wrap,
-	.chat-toggle--active .chat-toggle__avatar-wrap {
-		height: 4.5rem;
-		width: 4.5rem;
-	}
-
-	.chat-toggle:hover .chat-toggle__avatar,
-	.chat-toggle:focus-visible .chat-toggle__avatar,
-	.chat-toggle--active .chat-toggle__avatar {
-		transform: scale(1.9);
-	}
-
-	.chat-panel {
-		pointer-events: auto;
-		display: flex;
-		flex-direction: column;
-		width: 20rem;
-		overflow: hidden;
-		border-radius: 0.75rem;
-		border: 1px solid var(--color-overlay0, #6e738d);
-		background-color: var(--color-bg-elevated, #363a4f);
-		color: var(--color-text-primary, #cad3f5);
-		box-shadow: 0 20px 45px rgba(8, 8, 12, 0.45);
-	}
-
-	.chat-panel__header {
-		padding: 0.75rem 1rem;
-		font-size: 0.875rem;
-		font-weight: 600;
-		background: linear-gradient(
-			135deg,
-			var(--color-primary, #c6a0f6) 0%,
-			var(--color-accent, #f5bde6) 100%
-		);
-		color: var(--color-bg-tertiary, #181926);
-	}
-
-	.chat-panel__messages {
-		display: flex;
-		flex-direction: column;
-		gap: 0.75rem;
-		max-height: 24rem;
-		overflow-y: auto;
-		padding: 0.75rem 1rem;
-		background-color: var(--color-bg-secondary, #1e2030);
-	}
-
-	.chat-row {
-		display: flex;
-	}
-
-	.chat-row--user {
-		justify-content: flex-end;
-	}
-
-	.chat-row--bot {
-		justify-content: flex-start;
-	}
-
-	.chat-bubble {
-		max-width: 85%;
-		padding: 0.5rem 0.75rem;
-		border-radius: 1rem;
-		font-size: 0.875rem;
-		line-height: 1.4;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-	}
-
-	.chat-bubble--user {
-		background-color: var(--color-primary, #c6a0f6);
-		color: var(--color-bg-tertiary, #181926);
-	}
-
-	.chat-bubble--bot {
-		background-color: var(--color-bg-card, #494d64);
-		color: var(--color-text-primary, #cad3f5);
-	}
-
-	.chat-panel__composer {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.75rem;
-		border-top: 1px solid var(--color-overlay0, #6e738d);
-		background-color: var(--color-bg-elevated, #363a4f);
-	}
-
-	.chat-input {
-		flex: 1;
-		height: 2.5rem;
-		padding: 0 0.75rem;
-		border-radius: 9999px;
-		border: 1px solid var(--color-overlay1, #8087a2);
-		background-color: var(--color-bg-secondary, #1e2030);
-		color: var(--color-text-primary, #cad3f5);
-		font-size: 0.875rem;
-	}
-
-	.chat-input:focus-visible {
-		outline: 2px solid var(--color-primary, #c6a0f6);
-		outline-offset: 2px;
-	}
-
-	.chat-send {
-		height: 2.5rem;
-		padding: 0 1.25rem;
-		border-radius: 9999px;
-		border: none;
-		font-size: 0.875rem;
-		font-weight: 600;
-		cursor: pointer;
-		background-color: var(--color-secondary, #b7bdf8);
-		color: var(--color-bg-tertiary, #181926);
-		transition: filter 0.15s ease, transform 0.15s ease;
-	}
-
-	.chat-send:hover,
-	.chat-send:focus-visible {
-		transform: translateY(-1px);
-		filter: brightness(1.05);
-	}
-
-	@keyframes chat-pulse {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-2px) scale(1.02);
-		}
-	}
-
-	@keyframes chat-glow {
-		0%,
-		100% {
-			opacity: 0.3;
-			transform: scale(1);
-		}
-		50% {
-			opacity: 0.6;
-			transform: scale(1.15);
-		}
-	}
-
-	@media (max-width: 640px) {
-		.chat-shell {
-			right: 1rem;
-			left: 1rem;
-			align-items: stretch;
-		}
-
-		.chat-panel {
-			width: auto;
-		}
-	}
-</style>
