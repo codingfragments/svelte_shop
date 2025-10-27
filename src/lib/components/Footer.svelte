@@ -133,6 +133,7 @@
 				<div class="flex flex-wrap items-center space-x-6 text-sm">
 					<a href="/privacy" class="text-text-muted hover:text-primary transition-colors">Privacy Policy</a>
 					<a href="/terms" class="text-text-muted hover:text-primary transition-colors">Terms of Service</a>
+					<a href="/doc" class="text-text-muted hover:text-primary transition-colors">Help &amp; Documentation</a>
 					<a href="/contact" class="text-text-muted hover:text-primary transition-colors">Contact</a>
 				</div>
 			</div>
