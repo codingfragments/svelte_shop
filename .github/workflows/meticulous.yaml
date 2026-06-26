@@ -72,4 +72,4 @@ jobs:
         with:
           api-token: ${{ secrets.METICULOUS_API_TOKEN }}
           # SvelteKit adapter-node puts client assets in build/client
-          app-directory: "build"
+          app-directory: "build/client"

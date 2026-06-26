@@ -12,18 +12,28 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // Database configuration
 const DB_PATH = process.env.DATABASE_PATH || './data/db.sqlite';
 
-// Ensure database directory exists
-const dbDir = dirname(DB_PATH);
-if (!existsSync(dbDir)) {
-	console.log(`Creating database directory: ${dbDir}`);
-	mkdirSync(dbDir, { recursive: true });
+let _db: InstanceType<typeof Database> | null = null;
+
+function getDb(): InstanceType<typeof Database> {
+	if (!_db) {
+		const dbDir = dirname(DB_PATH);
+		if (!existsSync(dbDir)) {
+			console.log(`Creating database directory: ${dbDir}`);
+			mkdirSync(dbDir, { recursive: true });
+		}
+		_db = new Database(DB_PATH);
+		_db.pragma('foreign_keys = ON');
+	}
+	return _db;
 }
 
-// Initialize database
-export const db = new Database(DB_PATH);
-
-// Enable foreign key constraints
-db.pragma('foreign_keys = ON');
+// Proxy defers native module loading until first actual DB access (never at import time).
+// This allows the SvelteKit postbuild analyse step to import this module safely.
+export const db = new Proxy({} as InstanceType<typeof Database>, {
+	get(_target, prop: string | symbol) {
+		return (getDb() as unknown as Record<string | symbol, unknown>)[prop];
+	}
+});
 
 // Initialize database schema
 export function initializeDatabase() {
