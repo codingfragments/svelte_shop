@@ -37,6 +37,7 @@ COPY --from=builder /app/svelte.config.js ./
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/src/lib/db ./src/lib/db
 COPY --from=builder /app/src/lib/config.ts ./src/lib/config.ts
+COPY --from=builder /app/static ./static
 
 RUN mkdir -p /app/data
 
