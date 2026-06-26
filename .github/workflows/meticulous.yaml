@@ -1,4 +1,4 @@
-# Workflow for building frontend and running Meticulous tests against static assets
+# Workflow for building frontend and running Meticulous tests against a container image
 
 name: Meticulous
 
@@ -44,21 +44,19 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "24"
+          cache: pnpm
 
-      - name: Get pnpm store path
-        shell: bash
-        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - name: Cache pnpm store
+      - name: Cache node_modules
         uses: actions/cache@v4
         with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: node_modules
+          key: node-modules-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            node-modules-${{ runner.os }}
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          pnpm install --frozen-lockfile
 
       - name: Build project
         # METICULOUS_BUILD marks this as a build for Meticulous testing (see note above).
@@ -67,9 +65,30 @@ jobs:
         run: |
           pnpm build
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Docker Build (no push)
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          tags: my-app:${{ github.sha }}
+          push: false
+          # Marks the image as a Meticulous build (see note above). Consume it in your
+          # Dockerfile with `ARG METICULOUS_BUILD` / `ENV METICULOUS_BUILD=$METICULOUS_BUILD`
+          # if you need it at build time (e.g. getStaticProps / static generation).
+          build-args: |
+            METICULOUS_BUILD=true
+
       - name: Run Meticulous tests
-        uses: alwaysmeticulous/report-diffs-action/upload-assets@v1
+        uses: alwaysmeticulous/report-diffs-action/upload-container@v1
         with:
           api-token: ${{ secrets.METICULOUS_API_TOKEN }}
-          # SvelteKit adapter-node puts client assets in build/client
-          app-directory: "build/client"
+          image-tag: my-app:${{ github.sha }}
+          # Optional inputs:
+          container-port: 1234
+          # METICULOUS_BUILD is also passed at runtime so server-side code (e.g.
+          # getServerSideProps) can detect the Meticulous replay. See note above.
+          container-env: |
+            MY_ENV_VAR=my-value
+            METICULOUS_BUILD=true
