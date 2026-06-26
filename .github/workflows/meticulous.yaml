@@ -74,6 +74,7 @@ jobs:
           context: .
           tags: my-app:${{ github.sha }}
           push: false
+          load: true
           # Marks the image as a Meticulous build (see note above). Consume it in your
           # Dockerfile with `ARG METICULOUS_BUILD` / `ENV METICULOUS_BUILD=$METICULOUS_BUILD`
           # if you need it at build time (e.g. getStaticProps / static generation).
