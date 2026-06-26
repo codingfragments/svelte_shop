@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.1",
   "type": "module",
+  "packageManager": "pnpm@11.9.0",
   "scripts": {
     "dev": "vite dev",
     "dev:staging": "vite dev --mode staging",
@@ -51,8 +52,5 @@
     "better-sqlite3": "^12.3.0",
     "dotenv": "^17.2.2",
     "posthog-js": "^1.268.1"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["better-sqlite3"]
   }
 }

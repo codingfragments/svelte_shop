@@ -1,76 +1,57 @@
-# Use official Node.js runtime as base image
-FROM node:22.19.0-alpine AS builder
+FROM node:24-alpine AS base
+RUN corepack enable && corepack prepare pnpm@11.9.0 --activate
 
-# Set working directory
+# ── Builder ────────────────────────────────────────────────────────────────────
+FROM base AS builder
+
+# Build tools required to compile better-sqlite3 native addon
+RUN apk add --no-cache python3 make g++
+
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
+RUN pnpm install --frozen-lockfile
 
-# Install dependencies
-RUN npm ci --only=production=false
-
-# Copy source code
 COPY . .
+RUN pnpm build
 
-# Build the application
-RUN npm run build
+# Strip dev-only packages; production node_modules (incl. compiled .node binary) stays
+RUN pnpm prune --prod
 
-# Production stage
-FROM node:22.19.0-alpine AS runner
+# ── Runner ─────────────────────────────────────────────────────────────────────
+FROM base AS runner
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
-COPY package*.json ./
+# Copy pruned node_modules from builder — includes the compiled better-sqlite3 binary,
+# tsx (production dep), and all other runtime dependencies.
+# No build tools needed here; the .node binary was already compiled in the builder stage.
+COPY --from=builder /app/node_modules ./node_modules
 
-# Install only production dependencies
-RUN npm ci --only=production && npm cache clean --force
-
-# Copy built application from builder stage
+# SvelteKit adapter-node output (includes client assets bundled in build/client)
 COPY --from=builder /app/build ./build
-COPY --from=builder /app/static ./static
-COPY --from=builder /app/package.json ./package.json
-COPY --from=builder /app/svelte.config.js ./svelte.config.js
 
-# Copy database scripts and source files for runtime
+# Runtime files
+COPY --from=builder /app/package.json ./
+COPY --from=builder /app/svelte.config.js ./
 COPY --from=builder /app/scripts ./scripts
 COPY --from=builder /app/src/lib/db ./src/lib/db
 COPY --from=builder /app/src/lib/config.ts ./src/lib/config.ts
 
-# Install tsx for running TypeScript in production
-RUN npm install tsx
-
-# Create data directory for database
 RUN mkdir -p /app/data
 
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S svelte -u 1001
-
-# Copy and set permissions for entrypoint script
-COPY --from=builder /app/scripts/docker-entrypoint.js ./scripts/
-RUN chmod +x ./scripts/docker-entrypoint.js
-
-# Change ownership of app directory
+RUN addgroup -g 1001 -S nodejs && adduser -S svelte -u 1001
 RUN chown -R svelte:nodejs /app
 USER svelte
 
-# Set environment variables
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV DATABASE_PATH=/app/data/db.sqlite
 
-# Expose port
 EXPOSE 3000
-
-# Add volume for persistent data
 VOLUME ["/app/data"]
 
-# Health check - increase start period for database initialization
 HEALTHCHECK --interval=30s --timeout=3s --start-period=60s --retries=3 \
   CMD node -e "require('http').get('http://localhost:3000/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"
 
-# Start the application with database initialization
 CMD ["node", "scripts/docker-entrypoint.js"]
