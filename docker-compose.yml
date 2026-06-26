@@ -10,7 +10,7 @@ services:
       - NODE_ENV=production
       - DATABASE_PATH=/app/data/db.sqlite
     volumes:
-      - ./data:/app/data:rw
+      - data:/app/data:rw
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/api/health', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) })"]
@@ -29,5 +29,9 @@ services:
       - NODE_ENV=development
       - DATABASE_PATH=/app/data/db.sqlite
     volumes:
-      - ./data:/app/data:rw
+      - data:/app/data:rw
     restart: unless-stopped
+
+volumes:
+    data:
+        driver: local
