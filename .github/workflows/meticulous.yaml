@@ -1,4 +1,4 @@
-# Workflow for serving app locally & running Meticulous tests against it
+# Workflow for building frontend and running Meticulous tests against static assets
 
 name: Meticulous
 
@@ -16,7 +16,7 @@ on:
   workflow_dispatch: {}
 
 # Important: The workflow needs all the permissions below.
-# These permissions are mainly need to post and update the status check and
+# These permissions are mainly needed to post and update the status check and
 # feedback comment on your PR. Meticulous won't work without them.
 permissions:
   actions: write
@@ -34,43 +34,41 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
       - name: Use Node.js LTS
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: npm
+          cache: pnpm
 
       - name: Cache node_modules
         uses: actions/cache@v4
         with:
           path: node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+          key: node-modules-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             node-modules-${{ runner.os }}
 
       - name: Install dependencies
         run: |
-          npm install --frozen-lockfile --non-interactive
+          pnpm install --frozen-lockfile
 
       - name: Build project
+        # METICULOUS_BUILD marks this as a build for Meticulous testing (see note above).
+        env:
+          METICULOUS_BUILD: "true"
         run: |
-          npm run build
-
-      - name: Serve project
-        # TODO: Update these commands to serve your app's frontend locally, and
-        # then update the app-url to match.
-        # We strongly recommend you serve the app with a non-development server.
-        # For instance, if you are using Vite, use 'vite preview' instead of 'vite'
-        # or 'vite serve' to spin up the app.
-        # The sleep is often required to ensure your app is readily being served
-        # by the time the Meticulous tests start
-        run: |
-          npm run start  &
-          sleep 5
+          pnpm build
 
       - name: Run Meticulous tests
-        uses: alwaysmeticulous/report-diffs-action/cloud-compute@v1
+        uses: alwaysmeticulous/report-diffs-action/upload-assets@v1
         with:
           api-token: ${{ secrets.METICULOUS_API_TOKEN }}
-          # TODO: Update the port and protocol below to match your app's frontend
-          app-url: "http://localhost:3000/"
+          # TODO: Update the directory path below to match your app's build output directory
+          # For example, if you're using Vite, this is typically "dist"
+          app-directory: "dist"
