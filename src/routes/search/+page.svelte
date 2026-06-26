@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { untrack } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import ProductCard from '$lib/components/ProductCard.svelte';
@@ -6,10 +7,10 @@
 
 	let { data }: { data: PageData } = $props();
 
-	let sortBy = $state(data.currentFilters.sort);
-	let orderBy = $state(data.currentFilters.order);
-	let selectedCategory = $state(data.currentFilters.category);
-	let searchQuery = $state(data.currentFilters.query);
+	let sortBy = $state(untrack(() => data.currentFilters.sort));
+	let orderBy = $state(untrack(() => data.currentFilters.order));
+	let selectedCategory = $state(untrack(() => data.currentFilters.category));
+	let searchQuery = $state(untrack(() => data.currentFilters.query));
 
 	const sortOptions = [
 		{ value: 'created_at', label: 'Newest First', order: 'DESC' },

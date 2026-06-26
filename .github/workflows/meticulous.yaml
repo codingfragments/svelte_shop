@@ -44,19 +44,21 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: pnpm
 
-      - name: Cache node_modules
+      - name: Get pnpm store path
+        shell: bash
+        run: echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - name: Cache pnpm store
         uses: actions/cache@v4
         with:
-          path: node_modules
-          key: node-modules-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            node-modules-${{ runner.os }}
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: |
-          pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build project
         # METICULOUS_BUILD marks this as a build for Meticulous testing (see note above).
@@ -69,6 +71,5 @@ jobs:
         uses: alwaysmeticulous/report-diffs-action/upload-assets@v1
         with:
           api-token: ${{ secrets.METICULOUS_API_TOKEN }}
-          # TODO: Update the directory path below to match your app's build output directory
-          # For example, if you're using Vite, this is typically "dist"
-          app-directory: "dist"
+          # SvelteKit adapter-node puts client assets in build/client
+          app-directory: "build"
