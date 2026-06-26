@@ -87,7 +87,7 @@ jobs:
           api-token: ${{ secrets.METICULOUS_API_TOKEN }}
           image-tag: my-app:${{ github.sha }}
           # Optional inputs:
-          container-port: 1234
+          container-port: 3000
           # METICULOUS_BUILD is also passed at runtime so server-side code (e.g.
           # getServerSideProps) can detect the Meticulous replay. See note above.
           container-env: |
