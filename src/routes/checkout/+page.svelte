@@ -19,7 +19,7 @@
 	}
 
 	const steps = [
-		{ number: 1, title: 'Shipping Info', description: 'Enter your address details' },
+		{ number: 1, title: 'Shipping Details', description: 'Enter your address details' },
 		{ number: 2, title: 'Review Order', description: 'Confirm your items and shipping' },
 		{ number: 3, title: 'Payment', description: 'Enter payment information' }
 	];
@@ -38,7 +38,7 @@
 		<!-- Header -->
 		<div class="mb-8">
 			<h1 class="text-text-primary mb-2 text-3xl font-bold">Checkout</h1>
-			<p class="text-text-muted">Complete your order in a few simple steps</p>
+			<p class="text-text-muted">Complete this order in a few simple steps</p>
 		</div>
 
 		<!-- Progress Steps -->
