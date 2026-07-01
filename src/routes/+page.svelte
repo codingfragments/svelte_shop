@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import { APP_CONFIG } from '$lib/config.js';
 	import ProductCard from '$lib/components/ProductCard.svelte';
+	import MessageOfTheDay from '$lib/components/MessageOfTheDay.svelte';
 
 	let featuredProducts: any[] = [];
 	let categories: any[] = [];
@@ -72,6 +73,13 @@
 				</a>
 			</div>
 		</div>
+	</div>
+</section>
+
+<!-- Message of the Day -->
+<section class="bg-bg-primary py-8">
+	<div class="container mx-auto px-4">
+		<MessageOfTheDay />
 	</div>
 </section>
 

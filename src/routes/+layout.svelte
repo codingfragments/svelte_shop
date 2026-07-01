@@ -23,11 +23,13 @@
 </script>
 
 <svelte:head>
-	<script
-		data-recording-token="2UOrzBuoMskqSoBiiMyMlkpqIlWmwhvbYHZ5s4VK"
-		data-is-production-environment={import.meta.env.PROD}
-		src="https://snippet.meticulous.ai/v1/meticulous.js"
-	></script>
+	{#if import.meta.env.PROD}
+		<script
+			data-recording-token="2UOrzBuoMskqSoBiiMyMlkpqIlWmwhvbYHZ5s4VK"
+			data-is-production-environment="true"
+			src="https://snippet.meticulous.ai/v1/meticulous.js"
+		></script>
+	{/if}
 
 	<link rel="icon" href={favicon} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
