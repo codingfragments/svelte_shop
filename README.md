@@ -1,6 +1,6 @@
 # KeyCraft
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A demo mechanical keyboard e-commerce shop built with SvelteKit 2, Svelte 5, TailwindCSS 4, and SQLite.
 
 ## Creating a project
 
