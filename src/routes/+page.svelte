@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-	<title>{APP_CONFIG.name} - Next Century Keyboard Shop</title>
+	<title>{APP_CONFIG.name} - Next Century Keyboard Shop :)</title>
 	<meta name="description" content={APP_CONFIG.description} />
 </svelte:head>
 
