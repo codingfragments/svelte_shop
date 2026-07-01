@@ -1,6 +1,6 @@
 # KeyCraft
 
-A demo mechanical keyboard e-commerce shop built with SvelteKit 2, Svelte 5, TailwindCSS 4, and SQLite.
+A demo mechanical keyboard e-commerce shop built with SvelteKit 2, Svelte 5, TailwindCSS 4, and SQLite. See `CLAUDE.md` for development commands and architecture notes.
 
 ## Creating a project
 
