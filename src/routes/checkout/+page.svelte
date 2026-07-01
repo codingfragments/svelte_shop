@@ -19,9 +19,9 @@
 	}
 
 	const steps = [
-		{ number: 1, title: 'Shipping Details', description: 'Enter your address details' },
-		{ number: 2, title: 'Review Order', description: 'Confirm your items and shipping' },
-		{ number: 3, title: 'Payment', description: 'Enter payment information' }
+		{ number: 1, title: 'MY Shipping Details', description: 'Enter your address details' },
+		{ number: 2, title: 'MY Review Order', description: 'Confirm your items and shipping' },
+		{ number: 3, title: 'MY Payment', description: 'Enter payment information' }
 	];
 </script>
 
