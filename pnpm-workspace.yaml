@@ -1,10 +1,10 @@
 allowBuilds:
-  better-sqlite3: true  # native addon — must compile
-  core-js: false        # no native compilation needed
-  esbuild: false        # ships prebuilt binaries
+  better-sqlite3: true # native addon — must compile
+  core-js: false # no native compilation needed
+  esbuild: false # ships prebuilt binaries
 
 overrides:
   # pnpm v11 supply-chain check rejects packages published within the last 24h.
   # preact@10.29.3 was published 2026-06-26 (same day as this lockfile update).
   # Remove this override on the next lockfile update once 10.29.3 has aged out.
-  preact: "10.29.2"
+  preact: '10.29.2'

@@ -40,10 +40,10 @@ export function initializeDatabase() {
 	try {
 		const schemaPath = join(__dirname, 'schema.sql');
 		const schema = readFileSync(schemaPath, 'utf-8');
-		
+
 		// Execute schema
 		db.exec(schema);
-		
+
 		console.log('Database schema initialized successfully');
 		return true;
 	} catch (error) {
@@ -63,7 +63,7 @@ export function wipeDatabase() {
 			DROP TABLE IF EXISTS products;
 			DROP TABLE IF EXISTS categories;
 		`);
-		
+
 		console.log('Database wiped successfully');
 		return true;
 	} catch (error) {
@@ -158,26 +158,26 @@ function initQueries() {
 			INSERT INTO categories (name, slug, description, icon)
 			VALUES (?, ?, ?, ?)
 		`),
-		
+
 		getAllCategories: db.prepare('SELECT * FROM categories ORDER BY name'),
-		
+
 		getCategoryById: db.prepare('SELECT * FROM categories WHERE id = ?'),
-		
+
 		getCategoryBySlug: db.prepare('SELECT * FROM categories WHERE slug = ?'),
-		
+
 		// Products
 		insertProduct: db.prepare(`
 			INSERT INTO products (name, slug, description, price, category_id, in_stock, stock_quantity, sku, featured)
 			VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 		`),
-		
+
 		getAllProducts: db.prepare(`
 			SELECT p.*, c.name as category_name, c.slug as category_slug
 			FROM products p
 			LEFT JOIN categories c ON p.category_id = c.id
 			ORDER BY p.created_at DESC
 		`),
-		
+
 		getProductsByCategory: db.prepare(`
 			SELECT p.*, c.name as category_name, c.slug as category_slug
 			FROM products p
@@ -185,61 +185,61 @@ function initQueries() {
 			WHERE c.slug = ?
 			ORDER BY p.created_at DESC
 		`),
-		
+
 		getProductById: db.prepare(`
 			SELECT p.*, c.name as category_name, c.slug as category_slug
 			FROM products p
 			LEFT JOIN categories c ON p.category_id = c.id
 			WHERE p.id = ?
 		`),
-		
+
 		getProductBySlug: db.prepare(`
 			SELECT p.*, c.name as category_name, c.slug as category_slug
 			FROM products p
 			LEFT JOIN categories c ON p.category_id = c.id
 			WHERE p.slug = ?
 		`),
-		
+
 		// Product Pictures
 		insertProductPicture: db.prepare(`
 			INSERT INTO product_pictures (product_id, image_path, alt_text, sort_order, is_primary)
 			VALUES (?, ?, ?, ?, ?)
 		`),
-		
+
 		getProductPictures: db.prepare(`
 			SELECT * FROM product_pictures
 			WHERE product_id = ?
 			ORDER BY sort_order ASC
 		`),
-		
+
 		getPrimaryProductPicture: db.prepare(`
 			SELECT * FROM product_pictures
 			WHERE product_id = ? AND is_primary = TRUE
 			LIMIT 1
 		`),
-		
+
 		// FAQs
 		insertFAQ: db.prepare(`
 			INSERT INTO faqs (question, answer, category, sort_order, is_featured)
 			VALUES (?, ?, ?, ?, ?)
 		`),
-		
+
 		insertFAQProduct: db.prepare(`
 			INSERT INTO faq_products (faq_id, product_id, sort_order)
 			VALUES (?, ?, ?)
 		`),
-		
+
 		getAllFAQs: db.prepare(`
 			SELECT * FROM faqs
 			ORDER BY sort_order ASC, created_at DESC
 		`),
-		
+
 		getFAQsByCategory: db.prepare(`
 			SELECT * FROM faqs
 			WHERE category = ?
 			ORDER BY sort_order ASC, created_at DESC
 		`),
-		
+
 		getFAQProducts: db.prepare(`
 			SELECT fp.*, p.name, p.slug, p.price, c.slug as category_slug
 			FROM faq_products fp

@@ -19,18 +19,18 @@ export const GET: RequestHandler = async ({ url }) => {
 
 		if (includeStats) {
 			// Get product counts for each category
-			categoriesWithStats = categories.map(category => {
-				const productCount = db.prepare(
-					'SELECT COUNT(*) as count FROM products WHERE category_id = ?'
-				).get(category.id) as { count: number };
+			categoriesWithStats = categories.map((category) => {
+				const productCount = db
+					.prepare('SELECT COUNT(*) as count FROM products WHERE category_id = ?')
+					.get(category.id) as { count: number };
 
-				const featuredCount = db.prepare(
-					'SELECT COUNT(*) as count FROM products WHERE category_id = ? AND featured = 1'
-				).get(category.id) as { count: number };
+				const featuredCount = db
+					.prepare('SELECT COUNT(*) as count FROM products WHERE category_id = ? AND featured = 1')
+					.get(category.id) as { count: number };
 
-				const inStockCount = db.prepare(
-					'SELECT COUNT(*) as count FROM products WHERE category_id = ? AND in_stock = 1'
-				).get(category.id) as { count: number };
+				const inStockCount = db
+					.prepare('SELECT COUNT(*) as count FROM products WHERE category_id = ? AND in_stock = 1')
+					.get(category.id) as { count: number };
 
 				return {
 					...category,
@@ -40,7 +40,7 @@ export const GET: RequestHandler = async ({ url }) => {
 				};
 			});
 		} else {
-			categoriesWithStats = categories.map(category => ({
+			categoriesWithStats = categories.map((category) => ({
 				...category,
 				product_count: 0,
 				featured_count: 0,
@@ -52,12 +52,8 @@ export const GET: RequestHandler = async ({ url }) => {
 			categories: categoriesWithStats,
 			total: categories.length
 		});
-
 	} catch (error) {
 		console.error('Categories API error:', error);
-		return json(
-			{ error: 'Failed to fetch categories' },
-			{ status: 500 }
-		);
+		return json({ error: 'Failed to fetch categories' }, { status: 500 });
 	}
 };

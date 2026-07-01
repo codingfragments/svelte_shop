@@ -78,10 +78,10 @@ function createCheckoutStore() {
 
 	return {
 		subscribe,
-		
+
 		// Update current step
 		setStep: (step: number) => {
-			update(state => {
+			update((state) => {
 				const newState = { ...state, currentStep: step };
 				saveState(newState);
 				return newState;
@@ -90,9 +90,9 @@ function createCheckoutStore() {
 
 		// Update shipping address
 		updateShippingAddress: (address: Partial<ShippingAddress>) => {
-			update(state => {
-				const newState = { 
-					...state, 
+			update((state) => {
+				const newState = {
+					...state,
 					shippingAddress: { ...state.shippingAddress, ...address }
 				};
 				saveState(newState);
@@ -102,9 +102,9 @@ function createCheckoutStore() {
 
 		// Update billing address
 		updateBillingAddress: (address: Partial<BillingAddress>) => {
-			update(state => {
-				const newState = { 
-					...state, 
+			update((state) => {
+				const newState = {
+					...state,
 					billingAddress: { ...state.billingAddress, ...address }
 				};
 				saveState(newState);
@@ -114,9 +114,9 @@ function createCheckoutStore() {
 
 		// Update payment info
 		updatePaymentInfo: (payment: Partial<PaymentInfo>) => {
-			update(state => {
-				const newState = { 
-					...state, 
+			update((state) => {
+				const newState = {
+					...state,
 					paymentInfo: { ...state.paymentInfo, ...payment }
 				};
 				saveState(newState);
@@ -126,7 +126,7 @@ function createCheckoutStore() {
 
 		// Update shipping method
 		setShippingMethod: (method: string) => {
-			update(state => {
+			update((state) => {
 				const newState = { ...state, shippingMethod: method };
 				saveState(newState);
 				return newState;
@@ -135,7 +135,7 @@ function createCheckoutStore() {
 
 		// Update order notes
 		setOrderNotes: (notes: string) => {
-			update(state => {
+			update((state) => {
 				const newState = { ...state, orderNotes: notes };
 				saveState(newState);
 				return newState;
@@ -144,7 +144,7 @@ function createCheckoutStore() {
 
 		// Toggle terms agreement
 		setAgreedToTerms: (agreed: boolean) => {
-			update(state => {
+			update((state) => {
 				const newState = { ...state, agreedToTerms: agreed };
 				saveState(newState);
 				return newState;
@@ -153,7 +153,7 @@ function createCheckoutStore() {
 
 		// Complete checkout
 		completeCheckout: () => {
-			update(state => {
+			update((state) => {
 				const newState = { ...state, completed: true };
 				saveState(newState);
 				return newState;

@@ -6,9 +6,9 @@ export const load: PageLoad = async ({ fetch }) => {
 		if (!response.ok) {
 			throw new Error('Failed to fetch FAQs');
 		}
-		
+
 		const faqs = await response.json();
-		
+
 		// Group FAQs by category
 		const faqsByCategory = faqs.reduce((acc: any, faq: any) => {
 			const category = faq.category || 'general';
@@ -18,7 +18,7 @@ export const load: PageLoad = async ({ fetch }) => {
 			acc[category].push(faq);
 			return acc;
 		}, {});
-		
+
 		return {
 			faqsByCategory
 		};
