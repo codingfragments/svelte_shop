@@ -4,9 +4,9 @@ import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params, fetch, url }) => {
 	const { category } = params;
-	
+
 	// Verify the category exists in our config
-	const validCategory = APP_CONFIG.categories.find(cat => cat.slug === category);
+	const validCategory = APP_CONFIG.categories.find((cat) => cat.slug === category);
 	if (!validCategory) {
 		throw error(404, 'Category not found');
 	}
@@ -34,12 +34,13 @@ export const load: PageLoad = async ({ params, fetch, url }) => {
 
 		// Apply search and sort filters client-side if needed
 		let products = categoryData.category?.products || [];
-		
+
 		if (search) {
 			const searchLower = search.toLowerCase();
-			products = products.filter((product: any) =>
-				product.name.toLowerCase().includes(searchLower) ||
-				(product.description && product.description.toLowerCase().includes(searchLower))
+			products = products.filter(
+				(product: any) =>
+					product.name.toLowerCase().includes(searchLower) ||
+					(product.description && product.description.toLowerCase().includes(searchLower))
 			);
 		}
 

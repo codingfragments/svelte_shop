@@ -17,7 +17,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		}
 
 		const searchQuery = query.toLowerCase().trim();
-		
+
 		// Get products to search
 		let products: Product[];
 		if (category) {
@@ -28,18 +28,22 @@ export const GET: RequestHandler = async ({ url }) => {
 
 		// Perform search
 		const searchResults = products
-			.filter(product => {
+			.filter((product) => {
 				const nameMatch = product.name.toLowerCase().includes(searchQuery);
-				const descMatch = product.description && product.description.toLowerCase().includes(searchQuery);
+				const descMatch =
+					product.description && product.description.toLowerCase().includes(searchQuery);
 				const skuMatch = product.sku && product.sku.toLowerCase().includes(searchQuery);
-				const categoryMatch = product.category_name && product.category_name.toLowerCase().includes(searchQuery);
-				
+				const categoryMatch =
+					product.category_name && product.category_name.toLowerCase().includes(searchQuery);
+
 				return nameMatch || descMatch || skuMatch || categoryMatch;
 			})
 			.slice(0, limit)
-			.map(product => {
+			.map((product) => {
 				// Get primary picture for each result
-				const primaryPicture = queries.getPrimaryProductPicture.get(product.id) as ProductPicture | undefined;
+				const primaryPicture = queries.getPrimaryProductPicture.get(product.id) as
+					| ProductPicture
+					| undefined;
 				return {
 					...product,
 					primary_picture: primaryPicture
@@ -52,12 +56,8 @@ export const GET: RequestHandler = async ({ url }) => {
 			total: searchResults.length,
 			category
 		});
-
 	} catch (error) {
 		console.error('Search API error:', error);
-		return json(
-			{ error: 'Search failed' },
-			{ status: 500 }
-		);
+		return json({ error: 'Search failed' }, { status: 500 });
 	}
 };

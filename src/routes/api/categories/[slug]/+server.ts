@@ -17,10 +17,7 @@ export const GET: RequestHandler = async ({ params, url }) => {
 		const category = queries.getCategoryBySlug.get(slug) as Category | undefined;
 
 		if (!category) {
-			return json(
-				{ error: 'Category not found' },
-				{ status: 404 }
-			);
+			return json({ error: 'Category not found' }, { status: 404 });
 		}
 
 		// Get products for this category
@@ -31,7 +28,7 @@ export const GET: RequestHandler = async ({ params, url }) => {
 		const paginatedProducts = allProducts.slice(offset, offset + limit);
 
 		// Get pictures for each product
-		const productsWithPictures = paginatedProducts.map(product => {
+		const productsWithPictures = paginatedProducts.map((product) => {
 			const pictures = queries.getProductPictures.all(product.id) as ProductPicture[];
 			return { ...product, pictures };
 		});
@@ -52,12 +49,8 @@ export const GET: RequestHandler = async ({ params, url }) => {
 				hasPrev: offset > 0
 			}
 		});
-
 	} catch (error) {
 		console.error('Category API error:', error);
-		return json(
-			{ error: 'Failed to fetch category' },
-			{ status: 500 }
-		);
+		return json({ error: 'Failed to fetch category' }, { status: 500 });
 	}
 };

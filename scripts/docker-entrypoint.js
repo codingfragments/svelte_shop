@@ -15,13 +15,13 @@ console.log(`📁 Database path: ${DATABASE_PATH}`);
 // Check if database exists
 if (!existsSync(DATABASE_PATH)) {
 	console.log('🔧 Database not found, initializing...');
-	
+
 	// Run database reset
 	const dbReset = spawn('npx', ['tsx', 'scripts/db-utils.ts', 'reset'], {
 		stdio: 'inherit',
 		cwd: process.cwd()
 	});
-	
+
 	dbReset.on('close', (code) => {
 		if (code === 0) {
 			console.log('✅ Database initialized successfully');
@@ -31,7 +31,7 @@ if (!existsSync(DATABASE_PATH)) {
 			process.exit(1);
 		}
 	});
-	
+
 	dbReset.on('error', (error) => {
 		console.error('❌ Failed to run database initialization:', error);
 		process.exit(1);
@@ -43,29 +43,29 @@ if (!existsSync(DATABASE_PATH)) {
 
 function startApp() {
 	console.log('🌟 Starting SvelteKit application...');
-	
+
 	// Start the SvelteKit application
 	const app = spawn('node', ['build'], {
 		stdio: 'inherit',
 		cwd: process.cwd()
 	});
-	
+
 	app.on('close', (code) => {
 		console.log(`Application exited with code ${code}`);
 		process.exit(code);
 	});
-	
+
 	app.on('error', (error) => {
 		console.error('Failed to start application:', error);
 		process.exit(1);
 	});
-	
+
 	// Handle graceful shutdown
 	process.on('SIGTERM', () => {
 		console.log('📡 Received SIGTERM, shutting down gracefully...');
 		app.kill('SIGTERM');
 	});
-	
+
 	process.on('SIGINT', () => {
 		console.log('📡 Received SIGINT, shutting down gracefully...');
 		app.kill('SIGINT');

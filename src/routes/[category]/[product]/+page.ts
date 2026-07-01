@@ -4,9 +4,9 @@ import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params, fetch }) => {
 	const { category, product: productSlug } = params;
-	
+
 	// Verify the category exists in our config
-	const validCategory = APP_CONFIG.categories.find(cat => cat.slug === category);
+	const validCategory = APP_CONFIG.categories.find((cat) => cat.slug === category);
 	if (!validCategory) {
 		throw error(404, 'Category not found');
 	}
@@ -14,7 +14,7 @@ export const load: PageLoad = async ({ params, fetch }) => {
 	try {
 		// Fetch product by slug
 		const productResponse = await fetch(`/api/products/${productSlug}`);
-		
+
 		if (!productResponse.ok) {
 			throw error(404, 'Product not found');
 		}

@@ -45,7 +45,7 @@ function createCartStore() {
 	// Calculate totals
 	function calculateTotals(items: CartItem[]): Pick<Cart, 'total' | 'itemCount'> {
 		const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
-		const total = items.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+		const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
 		return { total, itemCount };
 	}
 
@@ -62,19 +62,16 @@ function createCartStore() {
 
 	return {
 		subscribe,
-		
+
 		// Add item to cart
 		addItem: (product: Omit<CartItem, 'quantity'>, quantity: number = 1) => {
-			update(cart => {
-				const existingItemIndex = cart.items.findIndex(item => item.id === product.id);
-				
+			update((cart) => {
+				const existingItemIndex = cart.items.findIndex((item) => item.id === product.id);
+
 				if (existingItemIndex >= 0) {
 					// Update existing item quantity
 					const existingItem = cart.items[existingItemIndex];
-					const newQuantity = Math.min(
-						existingItem.quantity + quantity,
-						product.stock_quantity
-					);
+					const newQuantity = Math.min(existingItem.quantity + quantity, product.stock_quantity);
 					cart.items[existingItemIndex] = { ...existingItem, quantity: newQuantity };
 				} else {
 					// Add new item
@@ -91,12 +88,12 @@ function createCartStore() {
 
 		// Update item quantity
 		updateQuantity: (productId: number, quantity: number) => {
-			update(cart => {
-				const itemIndex = cart.items.findIndex(item => item.id === productId);
+			update((cart) => {
+				const itemIndex = cart.items.findIndex((item) => item.id === productId);
 				if (itemIndex >= 0) {
 					const item = cart.items[itemIndex];
 					const newQuantity = Math.max(0, Math.min(quantity, item.stock_quantity));
-					
+
 					if (newQuantity === 0) {
 						// Remove item if quantity is 0
 						cart.items.splice(itemIndex, 1);
@@ -114,8 +111,8 @@ function createCartStore() {
 
 		// Remove item from cart
 		removeItem: (productId: number) => {
-			update(cart => {
-				cart.items = cart.items.filter(item => item.id !== productId);
+			update((cart) => {
+				cart.items = cart.items.filter((item) => item.id !== productId);
 				const totals = calculateTotals(cart.items);
 				const newCart = { ...cart, ...totals };
 				saveCart(newCart);
@@ -133,8 +130,8 @@ function createCartStore() {
 		// Check if product is in cart
 		isInCart: (productId: number) => {
 			let isInCart = false;
-			subscribe(cart => {
-				isInCart = cart.items.some(item => item.id === productId);
+			subscribe((cart) => {
+				isInCart = cart.items.some((item) => item.id === productId);
 			})();
 			return isInCart;
 		},
@@ -142,8 +139,8 @@ function createCartStore() {
 		// Get item quantity in cart
 		getItemQuantity: (productId: number) => {
 			let quantity = 0;
-			subscribe(cart => {
-				const item = cart.items.find(item => item.id === productId);
+			subscribe((cart) => {
+				const item = cart.items.find((item) => item.id === productId);
 				quantity = item?.quantity || 0;
 			})();
 			return quantity;

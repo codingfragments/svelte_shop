@@ -84,11 +84,7 @@ const patterns: Array<{ pattern: RegExp; responses: string[] }> = [
 	},
 	{
 		pattern: /\bno\b/i,
-		responses: [
-			'Why not?',
-			'What would make you say yes?',
-			'Can you explain that a bit more?'
-		]
+		responses: ['Why not?', 'What would make you say yes?', 'Can you explain that a bit more?']
 	},
 	{
 		pattern: /\b(customer support|support|help)\b/i,
@@ -100,10 +96,7 @@ const patterns: Array<{ pattern: RegExp; responses: string[] }> = [
 	},
 	{
 		pattern: /\b(order|shipping|delivery)\b/i,
-		responses: [
-			'Are you asking about a recent order?',
-			'When was the order placed?'
-		]
+		responses: ['Are you asking about a recent order?', 'When was the order placed?']
 	},
 	{
 		pattern: /\b(price|cost|expensive|cheap)\b/i,
@@ -114,18 +107,11 @@ const patterns: Array<{ pattern: RegExp; responses: string[] }> = [
 	},
 	{
 		pattern: /\b(can you|could you|would you)\b(?:.*)/i,
-		responses: [
-			'What makes you think I can $1?',
-			'How would you feel if I could $1?'
-		]
+		responses: ['What makes you think I can $1?', 'How would you feel if I could $1?']
 	},
 	{
 		pattern: /\bwhy\b(?:.*)/i,
-		responses: [
-			'What do you think?',
-			'Why do you ask?',
-			'Does the reason matter to you?'
-		]
+		responses: ['What do you think?', 'Why do you ask?', 'Does the reason matter to you?']
 	},
 	{
 		pattern: /\b(.*)\b/i,

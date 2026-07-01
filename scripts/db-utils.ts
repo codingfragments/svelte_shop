@@ -14,7 +14,7 @@ switch (command) {
 			process.exit(1);
 		}
 		break;
-		
+
 	case 'wipe':
 		console.log('Wiping database...');
 		if (wipeDatabase()) {
@@ -24,7 +24,7 @@ switch (command) {
 			process.exit(1);
 		}
 		break;
-		
+
 	case 'seed':
 		if (seedDatabase()) {
 			console.log('Database seeded successfully');
@@ -33,7 +33,7 @@ switch (command) {
 			process.exit(1);
 		}
 		break;
-		
+
 	case 'export':
 		if (exportSeedJson()) {
 			console.log('Export completed successfully');
@@ -42,7 +42,7 @@ switch (command) {
 			process.exit(1);
 		}
 		break;
-		
+
 	case 'reset':
 		console.log('Resetting database (wipe + init + seed)...');
 		if (wipeDatabase() && initializeDatabase() && seedDatabase()) {
@@ -52,7 +52,7 @@ switch (command) {
 			process.exit(1);
 		}
 		break;
-		
+
 	default:
 		console.log('Usage: npm run db <command>');
 		console.log('Commands:');

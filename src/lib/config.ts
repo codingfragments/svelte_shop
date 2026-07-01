@@ -3,7 +3,7 @@ export const APP_CONFIG = {
 	name: 'KeyCraft',
 	description: 'Next Century Keyboard Shop - Premium mechanical keyboards and accessories',
 	version: '1.0.0',
-	
+
 	// Categories detected from static/images
 	categories: [
 		{
@@ -42,13 +42,13 @@ export const APP_CONFIG = {
 			icon: '🛠️'
 		}
 	],
-	
+
 	// API Endpoints
 	api: {
 		baseUrl: '/api',
 		health: '/api/health'
 	},
-	
+
 	// Image paths
 	images: {
 		basePath: '/images',
@@ -60,11 +60,11 @@ export const APP_CONFIG = {
 			accessories: '/images/accessories'
 		}
 	},
-	
+
 	// Store settings
 	currency: 'USD',
 	locale: 'en-US',
-	
+
 	// Navigation
 	navigation: [
 		{ name: 'Home', href: '/' },
@@ -76,5 +76,5 @@ export const APP_CONFIG = {
 	]
 } as const;
 
-export type Category = typeof APP_CONFIG.categories[number];
+export type Category = (typeof APP_CONFIG.categories)[number];
 export type CategoryId = Category['id'];

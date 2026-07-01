@@ -41,7 +41,13 @@ export const load: PageLoad = async ({ fetch, url }) => {
 		return {
 			results: resultsData.products || [],
 			query,
-			pagination: resultsData.pagination || { total: 0, limit, offset, hasNext: false, hasPrev: false },
+			pagination: resultsData.pagination || {
+				total: 0,
+				limit,
+				offset,
+				hasNext: false,
+				hasPrev: false
+			},
 			categories: categoriesData.categories || [],
 			currentFilters: { query, category, sort, order, page }
 		};

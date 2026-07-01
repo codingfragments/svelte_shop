@@ -31,14 +31,15 @@ export const GET: RequestHandler = async ({ url }) => {
 
 		if (search) {
 			const searchLower = search.toLowerCase();
-			filteredProducts = products.filter(product =>
-				product.name.toLowerCase().includes(searchLower) ||
-				(product.description && product.description.toLowerCase().includes(searchLower))
+			filteredProducts = products.filter(
+				(product) =>
+					product.name.toLowerCase().includes(searchLower) ||
+					(product.description && product.description.toLowerCase().includes(searchLower))
 			);
 		}
 
 		if (featured === 'true') {
-			filteredProducts = filteredProducts.filter(product => product.featured);
+			filteredProducts = filteredProducts.filter((product) => product.featured);
 		}
 
 		// Sort products
@@ -63,7 +64,7 @@ export const GET: RequestHandler = async ({ url }) => {
 		const paginatedProducts = filteredProducts.slice(offset, offset + limit);
 
 		// Get pictures for each product
-		const productsWithPictures: ProductWithPictures[] = paginatedProducts.map(product => {
+		const productsWithPictures: ProductWithPictures[] = paginatedProducts.map((product) => {
 			const pictures = queries.getProductPictures.all(product.id) as ProductPicture[];
 			return { ...product, pictures };
 		});
@@ -85,12 +86,8 @@ export const GET: RequestHandler = async ({ url }) => {
 				order
 			}
 		});
-
 	} catch (error) {
 		console.error('Products API error:', error);
-		return json(
-			{ error: 'Failed to fetch products' },
-			{ status: 500 }
-		);
+		return json({ error: 'Failed to fetch products' }, { status: 500 });
 	}
 };

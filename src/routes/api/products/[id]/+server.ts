@@ -21,15 +21,12 @@ export const GET: RequestHandler = async ({ params }) => {
 		}
 
 		if (!product) {
-			return json(
-				{ error: 'Product not found' },
-				{ status: 404 }
-			);
+			return json({ error: 'Product not found' }, { status: 404 });
 		}
 
 		// Get product pictures
 		const pictures = queries.getProductPictures.all(product.id) as ProductPicture[];
-		
+
 		const productWithPictures: ProductWithPictures = {
 			...product,
 			pictures
@@ -49,12 +46,8 @@ export const GET: RequestHandler = async ({ params }) => {
 			product: productWithPictures,
 			related: relatedProducts
 		});
-
 	} catch (error) {
 		console.error('Product API error:', error);
-		return json(
-			{ error: 'Failed to fetch product' },
-			{ status: 500 }
-		);
+		return json({ error: 'Failed to fetch product' }, { status: 500 });
 	}
 };
