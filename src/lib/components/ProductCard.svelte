@@ -268,7 +268,7 @@
 			<button
 				onclick={handleAddToCart}
 				disabled={!product.in_stock || isAddingToCart}
-				class="bg-primary hover:bg-secondary disabled:bg-overlay0 disabled:text-text-muted relative overflow-hidden rounded-lg border-2 border-transparent px-4 py-2 text-base text-sm font-medium transition-all duration-200 active:scale-95 hover:enabled:border-violet-800 hover:enabled:font-bold disabled:cursor-not-allowed"
+				class="bg-primary hover:bg-secondary disabled:bg-overlay0 disabled:text-text-muted relative overflow-hidden rounded-lg border-2 border-transparent px-4 py-2 text-base text-sm font-medium text-red-700 transition-all duration-200 active:scale-95 hover:enabled:border-violet-800 hover:enabled:font-bold disabled:cursor-not-allowed"
 				class:animate-pulse={isAddingToCart}
 				class:bg-success={isAddingToCart}
 				class:border-success={isAddingToCart}
