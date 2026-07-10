@@ -63,7 +63,7 @@
 					href="/products"
 					class="rounded-2xl bg-primary px-8 py-4 text-lg font-semibold text-crust shadow-lg transition-colors hover:bg-secondary hover:shadow-xl"
 				>
-					<span class="text-crust">Shop All Keyboard Products</span>
+					<span class="text-crust">Shop All new Products</span>
 				</a>
 				<a
 					href="#categories"
