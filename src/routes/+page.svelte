@@ -53,7 +53,7 @@
 					crafted for enthusiasts who demand perfection.
 				</p>
 				<p class="mx-auto max-w-2xl text-lg font-bold text-warning">
-					⚠️ This is only a demo shop - no real products are sold here.
+					⚠️ This is only a demo shop - no real products are sold here. No keycaps are harmed 
 				</p>
 			</div>
 
